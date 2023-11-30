@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sucrase": "^3.34.0",
+    "typescript": "^5.3.2"
+  }
 }
