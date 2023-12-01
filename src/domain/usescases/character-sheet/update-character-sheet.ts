@@ -1,4 +1,4 @@
-import { CharacterSheetModel } from '../../models/sheet/character-sheet'
+import { CharacterSheetModel } from '../../models/character-sheet/character-sheet'
 
 export interface UpdateCharacterSheet {
   update (characterSheet: CharacterSheetModel): Promise<CharacterSheetModel>

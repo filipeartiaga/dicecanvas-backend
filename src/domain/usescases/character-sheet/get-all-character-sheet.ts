@@ -1,4 +1,4 @@
-import { CharacterSheetModel } from '../../models/sheet/character-sheet'
+import { CharacterSheetModel } from '../../models/character-sheet/character-sheet'
 
 export interface GetCharacterSheet {
   getAll (): Promise<CharacterSheetModel[]>
