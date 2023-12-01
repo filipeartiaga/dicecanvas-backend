@@ -14,7 +14,7 @@ export class FirstAccessEmailSenderAdapter implements FirstAccessEmailSender {
     })
 
     const response = await transporter.sendMail({
-      from: 'ExitLag Route Viewer" <contact@dicecanvas.com>',
+      from: 'DiceCanvas" <contact@dicecanvas.com>',
       to: email,
       subject: 'Account Verification DiceCanvas',
       html: `

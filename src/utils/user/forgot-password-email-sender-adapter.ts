@@ -14,7 +14,7 @@ export class ForgotPasswordEmailSenderAdapter implements ForgotPasswordEmailSend
     })
 
     const response = await transporter.sendMail({
-      from: 'ExitLag Route Viewer" <contact@dicecanvas.com>',
+      from: 'DiceCanvas" <contact@dicecanvas.com>',
       to: email,
       subject: 'Change Password Route Viewer',
       html: `
