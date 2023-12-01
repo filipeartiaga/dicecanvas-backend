@@ -1,4 +1,4 @@
-import { DbGetUser } from '../../../data/user/usecases/db-get-user'
+import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { LoginController } from '../../../presentation/controllers/user/login'
 import { BcryptAdapter } from '../../../utils/user/bcrypt-adapter'

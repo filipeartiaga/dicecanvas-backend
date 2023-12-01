@@ -1,4 +1,4 @@
-import { DbGetUser } from '../../../data/user/usecases/db-get-user'
+import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { GetMyUserController } from '../../../presentation/controllers/user/get-my-user'
 import { UserDecoderAdapter } from '../../../utils/user/user-decoder-adapter'

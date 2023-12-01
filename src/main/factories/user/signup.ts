@@ -1,5 +1,5 @@
-import { DbAddUser } from '../../../data/user/usecases/db-add-user'
-import { DbGetUser } from '../../../data/user/usecases/db-get-user'
+import { DbAddUser } from '../../../data/usecases/user/db-add-user'
+import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import { AddUserMongoRepository } from '../../../infra/db/mongodb/user-repository/add-user'
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { SignUpController } from '../../../presentation/controllers/user/signup'

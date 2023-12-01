@@ -1,5 +1,5 @@
-import { DbGetUser } from '../../../data/user/usecases/db-get-user'
-import { DbUpdateUser } from '../../../data/user/usecases/db-update-user'
+import { DbGetUser } from '../../../data/usecases/user/db-get-user'
+import { DbUpdateUser } from '../../../data/usecases/user/db-update-user'
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { UpdateUserMongoRepository } from '../../../infra/db/mongodb/user-repository/update-user'
 import { ChangePasswordController } from '../../../presentation/controllers/user/change-password'
