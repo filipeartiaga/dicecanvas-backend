@@ -3,8 +3,7 @@ import { HttpRequest, HttpResponse } from '../../protocols/http'
 import { ok, serverError, unauthorized } from '../../helpers/http-helpers'
 import { UnauthorizedError } from '../../errors'
 import { UserDecoder, AuthenticatedValidator } from '../../protocols/user'
-import { CharacterSheetGetter } from '../../protocols/character-sheet'
-import { AllMyCharacterSheetGetter } from 'src/presentation/protocols/character-sheet/all-my-character-sheet-getter'
+import { CharacterSheetGetter, AllMyCharacterSheetGetter } from '../../protocols/character-sheet'
 
 export class GetCharacterSheetController implements Controller {
   private readonly authenticatedValidator: AuthenticatedValidator
