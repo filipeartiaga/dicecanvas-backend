@@ -3,8 +3,7 @@ import { DbUpdateUser } from '../../../data/usecases/user/db-update-user'
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { UpdateUserMongoRepository } from '../../../infra/db/mongodb/user-repository/update-user'
 import { ChangePasswordController } from '../../../presentation/controllers/user/change-password'
-import { BcryptAdapter } from '../../../utils/user/bcrypt-adapter'
-import { UserDecoderAdapter } from '../../../utils/user/user-decoder-adapter'
+import { BcryptAdapter, UserDecoderAdapter } from '../../../utils/user'
 import env from '../../config/env'
 
 export const makeChangePasswordController = (): ChangePasswordController => {

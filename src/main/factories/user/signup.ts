@@ -3,10 +3,7 @@ import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import { AddUserMongoRepository } from '../../../infra/db/mongodb/user-repository/add-user'
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { SignUpController } from '../../../presentation/controllers/user/signup'
-import { EmailValidatorAdapter } from '../../../utils/user/email-validator-adapter'
-import { FirstAccessEmailSenderAdapter } from '../../../utils/user/first-access-email-sender-adapter'
-import { FirstAccessTokenGeneratorAdapter } from '../../../utils/user/first-access-token-generator-adapter'
-import { UserSignerAdapter } from '../../../utils/user/user-signer-adapter'
+import { EmailValidatorAdapter, FirstAccessEmailSenderAdapter, FirstAccessTokenGeneratorAdapter, UserSignerAdapter } from '../../../utils/user'
 import env from '../../config/env'
 
 export const makeSignUpController = (): SignUpController => {

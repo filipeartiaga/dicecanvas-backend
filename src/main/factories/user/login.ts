@@ -1,9 +1,7 @@
 import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { LoginController } from '../../../presentation/controllers/user/login'
-import { BcryptAdapter } from '../../../utils/user/bcrypt-adapter'
-import { EmailValidatorAdapter } from '../../../utils/user/email-validator-adapter'
-import { UserSignerAdapter } from '../../../utils/user/user-signer-adapter'
+import { BcryptAdapter, EmailValidatorAdapter, UserSignerAdapter } from '../../../utils/user'
 import env from '../../config/env'
 
 export const makeLoginController = (): LoginController => {

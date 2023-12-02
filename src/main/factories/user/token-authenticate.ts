@@ -1,8 +1,7 @@
 import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { ForgotPasswordTokenAuthenticateController } from '../../../presentation/controllers/user/forgot-password-token-authenticate'
-import { EmailValidatorAdapter } from '../../../utils/user/email-validator-adapter'
-import { UserSignerAdapter } from '../../../utils/user/user-signer-adapter'
+import { EmailValidatorAdapter, UserSignerAdapter } from '../../../utils/user'
 import env from '../../config/env'
 
 export const makeForgetPasswordTokenAuthenticate = (): ForgotPasswordTokenAuthenticateController => {

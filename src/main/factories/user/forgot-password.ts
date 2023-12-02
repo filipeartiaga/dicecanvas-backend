@@ -3,9 +3,7 @@ import { DbUpdateUser } from '../../../data/usecases/user/db-update-user'
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { UpdateUserMongoRepository } from '../../../infra/db/mongodb/user-repository/update-user'
 import { ForgotPasswordController } from '../../../presentation/controllers/user/forgot-password'
-import { EmailValidatorAdapter } from '../../../utils/user/email-validator-adapter'
-import { ForgotPasswordEmailSenderAdapter } from '../../../utils/user/forgot-password-email-sender-adapter'
-import { ForgotPasswordTokenGeneratorAdapter } from '../../../utils/user/forgot-password-token-generator-adapter'
+import { EmailValidatorAdapter, ForgotPasswordEmailSenderAdapter, ForgotPasswordTokenGeneratorAdapter } from '../../../utils/user'
 
 export const makeForgotPasswordController = (): ForgotPasswordController => {
   const emailValidatorAdapter = new EmailValidatorAdapter()
