@@ -3,14 +3,14 @@ import { HttpRequest, HttpResponse } from '../../protocols/http'
 import { ok, serverError, unauthorized } from '../../helpers/http-helpers'
 import { UnauthorizedError } from '../../errors'
 import { UserDecoder, AuthenticatedValidator } from '../../protocols/user'
-import { CharacterSheetGetter, AllMyCharacterSheetGetter } from '../../protocols/character-sheet'
+import { AllMyCharacterSheetGetter } from '../../protocols/character-sheet'
 
 export class GetCharacterSheetController implements Controller {
   private readonly authenticatedValidator: AuthenticatedValidator
   private readonly userDecoder: UserDecoder
   private readonly allMyCharacterSheetGetter: AllMyCharacterSheetGetter
 
-  constructor (authenticatedValidator: AuthenticatedValidator, userDecoder: UserDecoder, characterSheetGetter: CharacterSheetGetter, allMyCharacterSheetGetter: AllMyCharacterSheetGetter) {
+  constructor (authenticatedValidator: AuthenticatedValidator, userDecoder: UserDecoder, allMyCharacterSheetGetter: AllMyCharacterSheetGetter) {
     this.authenticatedValidator = authenticatedValidator
     this.userDecoder = userDecoder
     this.allMyCharacterSheetGetter = allMyCharacterSheetGetter
