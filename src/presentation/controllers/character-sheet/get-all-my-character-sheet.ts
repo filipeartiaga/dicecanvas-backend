@@ -5,7 +5,7 @@ import { UnauthorizedError } from '../../errors'
 import { UserDecoder, AuthenticatedValidator } from '../../protocols/user'
 import { AllMyCharacterSheetGetter } from '../../protocols/character-sheet'
 
-export class GetCharacterSheetController implements Controller {
+export class GetAllMyCharacterSheetController implements Controller {
   private readonly authenticatedValidator: AuthenticatedValidator
   private readonly userDecoder: UserDecoder
   private readonly allMyCharacterSheetGetter: AllMyCharacterSheetGetter
