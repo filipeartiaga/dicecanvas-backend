@@ -1,3 +1,3 @@
 export interface CharacterSheetDeleter {
-  delete(characterSheetIds: string[]): Promise<any>
+  delete(characterSheetIds: string): Promise<any>
 }
