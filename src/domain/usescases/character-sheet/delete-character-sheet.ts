@@ -1,3 +1,3 @@
 export interface DeleteCharacterSheet {
-  delete (sheetId: number): any
+  delete (_id: string): any
 }
