@@ -4,7 +4,7 @@ import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import env from '../../config/env'
 import { GetAllCharacterSheetController } from '../../../presentation/controllers/character-sheet/get-all'
 import { DbGetAllCharacterSheet } from '../../../data/usecases/character-sheet/db-get-all-character-sheet'
-import { GetAllCharacterSheetMongoRepository } from 'src/infra/db/mongodb/status/get-all-character-sheet'
+import { GetAllCharacterSheetMongoRepository } from '../../../infra/db/mongodb/status/get-all-character-sheet'
 
 export const makeGetAllCharacterSheetController = (): GetAllCharacterSheetController => {
   const getUserMongoRepository = new GetUserMongoRepository()
