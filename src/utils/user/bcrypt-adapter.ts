@@ -9,10 +9,10 @@ export class BcryptAdapter implements Encrypter {
   }
 
   async compare (password: string, hash: string): Promise<boolean> {
-    return bcrypt.compare(password, hash)
+    return await bcrypt.compare(password, hash)
   }
 
   async hash (password: string): Promise<string> {
-    return bcrypt.hash(password, this.salt)
+    return await bcrypt.hash(password, this.salt)
   }
 }
