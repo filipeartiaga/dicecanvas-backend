@@ -1,4 +1,4 @@
-import { LogModel } from 'src/domain/models/log/log'
+import { LogModel } from '../../../domain/models/log/log'
 
 export interface AddLogModel {
   userId: string
