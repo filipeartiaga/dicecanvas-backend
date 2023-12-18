@@ -1,15 +1,15 @@
-import { DeleteCharacterSheet } from '../../../domain/usescases/character-sheet/delete-character-sheet'
-import { DeleteCharacterSheetRepository } from '../../protocols/character-sheet/delete-character-sheet-repository'
+import { DeleteLog } from '../../../domain/usescases/log/delete-log'
+import { DeleteLogRepository } from '../../protocols/log/delete-log-repository'
 
-export class DbDeleteCharacterSheet implements DeleteCharacterSheet {
-  private readonly deleteCharacterSheetRepository: DeleteCharacterSheetRepository
+export class DbDeleteLog implements DeleteLog {
+  private readonly deleteLogRepository: DeleteLogRepository
 
-  constructor (deleteCharacterSheetRepository: DeleteCharacterSheetRepository) {
-    this.deleteCharacterSheetRepository = deleteCharacterSheetRepository
+  constructor (deleteLogRepository: DeleteLogRepository) {
+    this.deleteLogRepository = deleteLogRepository
   }
 
   async delete (_id: string): Promise<any> {
-    const response = await this.deleteCharacterSheetRepository.delete(_id)
+    const response = await this.deleteLogRepository.delete(_id)
     return response
   }
 }

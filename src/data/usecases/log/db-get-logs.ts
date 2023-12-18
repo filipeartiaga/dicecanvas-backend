@@ -1,16 +1,16 @@
-import { GetAllCharacterSheetRepository } from '../../protocols/character-sheet/get-all-character-sheet-repository'
-import { CharacterSheetModel } from '../../../domain/models/character-sheet/character-sheet'
-import { GetAllCharacterSheet } from '../../../domain/usescases/character-sheet/get-all-character-sheet'
+import { GetAllLogsRepository } from '../../protocols/log/get-all-logs-repository'
+import { LogModel } from '../../../domain/models/log/log'
+import { GetAllLogs } from '../../../domain/usescases/log/get-all-logs'
 
-export class DbGetAllCharacterSheet implements GetAllCharacterSheet {
-  private readonly getAllCharacterSheetRepository: GetAllCharacterSheetRepository
+export class DbGetAllLog implements GetAllLogs {
+  private readonly getAllLogRepository: GetAllLogsRepository
 
-  constructor (getAllCharacterSheetRepository: GetAllCharacterSheetRepository) {
-    this.getAllCharacterSheetRepository = getAllCharacterSheetRepository
+  constructor (getAllLogRepository: GetAllLogsRepository) {
+    this.getAllLogRepository = getAllLogRepository
   }
 
-  async getAll (): Promise<CharacterSheetModel[]> {
-    const characterSheet = await this.getAllCharacterSheetRepository.getAll()
-    return characterSheet
+  async getAll (): Promise<LogModel[]> {
+    const cog = await this.getAllLogRepository.getAll()
+    return cog
   }
 }
