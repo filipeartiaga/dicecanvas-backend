@@ -2,10 +2,10 @@ import { AdminValidatorAdapter, AuthenticatedValidatorAdapter, UserDecoderAdapte
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import env from '../../config/env'
-import { GetCharacterSheetMongoRepository } from '../../../infra/db/mongodb/status/get-character-sheet'
+import { GetCharacterSheetMongoRepository } from '../../../infra/db/mongodb/character-sheet/get-character-sheet'
 import { DbGetCharacterSheet } from '../../../data/usecases/character-sheet/db-get-character-sheet'
 import { EditCharacterSheetController } from '../../../presentation/controllers/character-sheet/edit'
-import { UpdateCharacterSheetMongoRepository } from '../../../infra/db/mongodb/status/update-character-sheet'
+import { UpdateCharacterSheetMongoRepository } from '../../../infra/db/mongodb/character-sheet/update-character-sheet'
 import { DbUpdateCharacterSheet } from '../../../data/usecases/character-sheet/db-update-character-sheet'
 
 export const makeEditCharacterSheetController = (): EditCharacterSheetController => {

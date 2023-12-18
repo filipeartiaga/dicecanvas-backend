@@ -38,7 +38,7 @@ export class EditCharacterSheetController implements Controller {
 
       const {
         _id
-      } = httpRequest.body._id
+      } = httpRequest.body
 
       const characterSheet = await this.characterSheetGetter.getById(_id)
 
@@ -68,6 +68,7 @@ export class EditCharacterSheetController implements Controller {
         speed,
         maxHitpoints,
         currentHitpoints,
+        temporaryHitpoints,
         hitDice,
         totalHitDice,
         personalityTraits,
@@ -77,8 +78,24 @@ export class EditCharacterSheetController implements Controller {
         abilityScores,
         savingThrows,
         skills,
-        deathSaves
+        deathSaves,
+        attacks,
+        equipment,
+        featuresAndTraits,
+        otherProficiencies
       } = httpRequest.body
+
+      attacks.forEach((attack) => {
+        let willKeep = false
+        Object.keys(attack).forEach((key) => {
+          if (attack[key] !== '') {
+            willKeep = true
+          }
+        })
+        if (!willKeep) {
+          attacks.splice(attacks.indexOf(attack), 1)
+        }
+      })
 
       characterSheet.name = name
       characterSheet.baseClass = baseClass
@@ -94,6 +111,7 @@ export class EditCharacterSheetController implements Controller {
       characterSheet.speed = speed
       characterSheet.maxHitpoints = maxHitpoints
       characterSheet.currentHitpoints = currentHitpoints
+      characterSheet.temporaryHitpoints = temporaryHitpoints
       characterSheet.hitDice = hitDice
       characterSheet.totalHitDice = totalHitDice
       characterSheet.personalityTraits = personalityTraits
@@ -104,6 +122,28 @@ export class EditCharacterSheetController implements Controller {
       characterSheet.savingThrows = savingThrows
       characterSheet.skills = skills
       characterSheet.deathSaves = deathSaves
+      characterSheet.attacks = attacks
+      characterSheet.equipment = equipment
+      characterSheet.featuresAndTraits = featuresAndTraits
+      characterSheet.otherProficiencies = otherProficiencies
+
+      characterSheet.equipment.forEach((equipment) => {
+        if (equipment.length === 0) {
+          characterSheet.equipment.splice(characterSheet.equipment.indexOf(equipment), 1)
+        }
+      })
+
+      characterSheet.featuresAndTraits.forEach((feature) => {
+        if (feature.length === 0) {
+          characterSheet.featuresAndTraits.splice(characterSheet.featuresAndTraits.indexOf(feature), 1)
+        }
+      })
+
+      characterSheet.otherProficiencies.forEach((proficiency) => {
+        if (proficiency.length === 0) {
+          characterSheet.otherProficiencies.splice(characterSheet.otherProficiencies.indexOf(proficiency), 1)
+        }
+      })
 
       const updatedCharacterSheet = await this.characterSheetUpdater.update(characterSheet)
 
@@ -111,6 +151,7 @@ export class EditCharacterSheetController implements Controller {
         updatedCharacterSheet
       })
     } catch (error) {
+      console.log(error)
       return serverError()
     }
   }

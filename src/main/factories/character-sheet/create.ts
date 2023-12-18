@@ -3,7 +3,7 @@ import { CreateCharacterSheetController } from '../../../presentation/controller
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import env from '../../config/env'
-import { AddCharacterSheetMongoRepository } from '../../../infra/db/mongodb/status/add-character-sheet'
+import { AddCharacterSheetMongoRepository } from '../../../infra/db/mongodb/character-sheet/add-character-sheet'
 import { DbAddCharacterSheet } from '../../../data/usecases/character-sheet/db-add-character-sheet'
 
 export const makeCreateCharacterSheetController = (): CreateCharacterSheetController => {

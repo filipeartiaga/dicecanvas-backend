@@ -18,7 +18,7 @@ export class CreateCharacterSheetController implements Controller {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const requiredFields = ['name', 'baseClass', 'race', 'level', 'background', 'alignment', 'experiencePoints', 'inspiration', 'proficiencyBonus', 'armorClass', 'initiative', 'speed', 'maxHitpoints', 'currentHitpoints', 'hitDice', 'totalHitDice', 'personalityTraits', 'ideals', 'bonds', 'flaws', 'abilityScores', 'savingThrows', 'skills']
+      const requiredFields = ['name', 'baseClass', 'race', 'level', 'background', 'alignment', 'experiencePoints', 'inspiration', 'proficiencyBonus', 'armorClass', 'initiative', 'speed', 'maxHitpoints', 'currentHitpoints', 'temporaryHitpoints', 'hitDice', 'totalHitDice', 'personalityTraits', 'ideals', 'bonds', 'flaws', 'abilityScores', 'savingThrows', 'skills', 'deathSaves', 'attacks', 'equipment', 'featuresAndTraits', 'otherProficiencies']
       for (const field of requiredFields) {
         if (typeof httpRequest.body[field] === 'undefined') {
           return badRequest(new MissingParamError(field))
@@ -49,6 +49,7 @@ export class CreateCharacterSheetController implements Controller {
         speed,
         maxHitpoints,
         currentHitpoints,
+        temporaryHitpoints,
         hitDice,
         totalHitDice,
         personalityTraits,
@@ -58,7 +59,11 @@ export class CreateCharacterSheetController implements Controller {
         abilityScores,
         savingThrows,
         skills,
-        deathSaves
+        deathSaves,
+        attacks,
+        equipment,
+        featuresAndTraits,
+        otherProficiencies
       } = httpRequest.body
 
       const createdAt = new Date()
@@ -79,6 +84,7 @@ export class CreateCharacterSheetController implements Controller {
         speed,
         maxHitpoints,
         currentHitpoints,
+        temporaryHitpoints,
         hitDice,
         totalHitDice,
         personalityTraits,
@@ -89,6 +95,10 @@ export class CreateCharacterSheetController implements Controller {
         savingThrows,
         skills,
         deathSaves,
+        attacks,
+        equipment,
+        featuresAndTraits,
+        otherProficiencies,
         createdAt
       })
 
@@ -96,6 +106,7 @@ export class CreateCharacterSheetController implements Controller {
         characterSheet
       })
     } catch (error) {
+      console.log(error)
       return serverError()
     }
   }

@@ -16,6 +16,7 @@ export interface AddCharacterSheetModel {
   speed: number
   maxHitpoints: number
   currentHitpoints: number
+  temporaryHitpoints: number
   hitDice: string
   totalHitDice: number
   personalityTraits: string
@@ -59,9 +60,18 @@ export interface AddCharacterSheetModel {
     survival: boolean
   }
   deathSaves: {
-    successes: number
-    failures: number
+    successes: boolean[]
+    failures: boolean[]
   }
+  attacks: Array<{
+    name: string
+    bonus: number
+    damage: string
+    damageType: string
+  }>
+  equipment: string[]
+  featuresAndTraits: string[]
+  otherProficiencies: string[]
   createdAt: Date
 }
 

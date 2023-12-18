@@ -22,6 +22,7 @@ export class UpdateCharacterSheetMongoRepository implements UpdateCharacterSheet
           speed: characterSheet.speed,
           maxHitpoints: characterSheet.maxHitpoints,
           currentHitpoints: characterSheet.currentHitpoints,
+          temporaryHitpoints: characterSheet.temporaryHitpoints,
           hitDice: characterSheet.hitDice,
           totalHitDice: characterSheet.totalHitDice,
           personalityTraits: characterSheet.personalityTraits,
@@ -31,7 +32,11 @@ export class UpdateCharacterSheetMongoRepository implements UpdateCharacterSheet
           abilityScores: characterSheet.abilityScores,
           savingThrows: characterSheet.savingThrows,
           skills: characterSheet.skills,
-          deathSaves: characterSheet.deathSaves
+          deathSaves: characterSheet.deathSaves,
+          attacks: characterSheet.attacks,
+          equipment: characterSheet.equipment,
+          featuresAndTraits: characterSheet.featuresAndTraits,
+          otherProficiencies: characterSheet.otherProficiencies
         }
       },
       { returnDocument: 'after' }

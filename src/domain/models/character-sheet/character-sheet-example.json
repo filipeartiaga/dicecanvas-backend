@@ -1,0 +1,49 @@
+{
+  "name": "Azrael Bloodfire",
+  "baseClass": "Warlock",
+  "race": "Tiefling",
+  "level": 1,
+  "abilityScores": {
+    "strength": 8,
+    "dexterity": 14,
+    "constitution": 14,
+    "intelligence": 10,
+    "wisdom": 12,
+    "charisma": 16
+  },
+  "skills": {
+    "acrobatics": 0,
+    "animalHandling": 0,
+    "arcana": 0,
+    "athletics": 0,
+    "deception": 0,
+    "history": 0,
+    "insight": 0,
+    "intimidation": 0,
+    "investigation": 0,
+    "medicine": 0,
+    "nature": 0,
+    "perception": 0,
+    "performance": 0,
+    "persuasion": 0,
+    "religion": 0,
+    "sleightOfHand": 0,
+    "stealth": 0,
+    "survival": 0
+  },
+  "proficiencies": {
+    "armor": [
+      "Light"
+    ],
+    "weapons": [
+      "Simple"
+    ],
+    "tools": [],
+    "savingThrows": [
+      "Charisma",
+      "Wisdom"
+    ]
+  }
+
+
+}

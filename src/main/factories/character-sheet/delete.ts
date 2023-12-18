@@ -3,9 +3,9 @@ import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repositor
 import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import env from '../../config/env'
 import { DeleteCharacterSheetController } from '../../../presentation/controllers/character-sheet/delete'
-import { GetCharacterSheetMongoRepository } from '../../../infra/db/mongodb/status/get-character-sheet'
+import { GetCharacterSheetMongoRepository } from '../../../infra/db/mongodb/character-sheet/get-character-sheet'
 import { DbGetCharacterSheet } from '../../../data/usecases/character-sheet/db-get-character-sheet'
-import { DeleteCharacterSheetMongoRepository } from '../../../infra/db/mongodb/status/delete-character-sheet'
+import { DeleteCharacterSheetMongoRepository } from '../../../infra/db/mongodb/character-sheet/delete-character-sheet'
 import { DbDeleteCharacterSheet } from '../../../data/usecases/character-sheet/db-delete-character-sheet'
 
 export const makeDeleteCharacterSheetController = (): DeleteCharacterSheetController => {

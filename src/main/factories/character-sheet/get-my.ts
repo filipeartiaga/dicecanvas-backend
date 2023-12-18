@@ -3,7 +3,7 @@ import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repositor
 import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import env from '../../config/env'
 import { GetAllMyCharacterSheetController } from '../../../presentation/controllers/character-sheet/get-all-my-character-sheet'
-import { GetAllMyCharacterSheetMongoRepository } from '../../../infra/db/mongodb/status/get-all-my-character-sheet'
+import { GetAllMyCharacterSheetMongoRepository } from '../../../infra/db/mongodb/character-sheet/get-all-my-character-sheet'
 import { DbGetAllMyCharacterSheet } from '../../../data/usecases/character-sheet/db-get-all-my-character-sheet'
 
 export const makeGetAllMyCharacterSheetController = (): GetAllMyCharacterSheetController => {
