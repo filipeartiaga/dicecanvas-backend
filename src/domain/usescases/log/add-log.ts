@@ -1,3 +1,4 @@
+import { RollResult } from '../../../domain/models/log/roll-result'
 import { LogModel } from '../../../domain/models/log/log'
 
 export interface AddLogModel {
@@ -5,8 +6,8 @@ export interface AddLogModel {
   characterSheetId: string
   type: string
   message: string
-  rollResult: string
-  rollRaw: string
+  rollResult: RollResult
+  rollNotation: string
   createdAt: Date
 }
 
