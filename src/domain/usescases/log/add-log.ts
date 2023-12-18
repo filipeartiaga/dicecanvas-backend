@@ -7,6 +7,7 @@ export interface AddLogModel {
   message: string
   rollResult: string
   rollRaw: string
+  createdAt: Date
 }
 
 export interface AddLog {
