@@ -1,5 +1,5 @@
 import { LogModel } from '../../../domain/models/log/log'
 
 export interface GetLog {
-  getById (): Promise<LogModel>
+  getById (_id: string): Promise<LogModel>
 }
