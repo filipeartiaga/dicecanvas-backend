@@ -1,50 +1,32 @@
-import { LogAdder, RollGenerator, RollValidator } from '../../protocols/log'
+import { LogAdder, RollGenerator } from '../../protocols/log'
 import { HttpRequest, HttpResponse } from '../../protocols/http'
 import { badRequest, ok, serverError, unauthorized } from '../../helpers/http-helpers'
 import { MissingParamError, UnauthorizedError } from '../../errors'
 import { UserDecoder, AuthenticatedValidator } from '../../protocols/user'
 import { Controller } from '../../protocols/controller'
+import { CharacterSheetGetter } from '../../protocols/character-sheet'
 
-export class CreatelogController implements Controller {
+export class CreateLogController implements Controller {
   private readonly authenticatedValidator: AuthenticatedValidator
   private readonly logAdder: LogAdder
   private readonly userDecoder: UserDecoder
-  private readonly rollValidator: RollValidator
   private readonly rollGenerator: RollGenerator
+  private readonly characterSheetGetter: CharacterSheetGetter
 
-  constructor (authenticatedValidator: AuthenticatedValidator, logAdder: LogAdder, userDecoder: UserDecoder, rollValidator: RollValidator, rollGenerator: RollGenerator) {
+  constructor (authenticatedValidator: AuthenticatedValidator, logAdder: LogAdder, userDecoder: UserDecoder, rollGenerator: RollGenerator, characterSheetGetter) {
     this.authenticatedValidator = authenticatedValidator
     this.logAdder = logAdder
     this.userDecoder = userDecoder
-    this.rollValidator = rollValidator
     this.rollGenerator = rollGenerator
+    this.characterSheetGetter = characterSheetGetter
   }
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const requiredFields = ['type', 'characterSheetId']
+      const requiredFields = ['characterSheetId', 'message']
       for (const field of requiredFields) {
         if (typeof httpRequest.body[field] === 'undefined') {
           return badRequest(new MissingParamError(field))
-        }
-      }
-
-      const rollRequiredFields = ['rollRaw']
-      const messageRequiredFields = ['message']
-
-      const type = httpRequest.body.type
-
-      if (type === 'roll') {
-        for (const field of rollRequiredFields) {
-          if (typeof httpRequest.body[field] === 'undefined') {
-            return badRequest(new MissingParamError(field))
-          }
-        }
-      } else if (type === 'message') {
-        for (const field of messageRequiredFields) {
-          if (typeof httpRequest.body[field] === 'undefined') {
-            return badRequest(new MissingParamError(field))
-          }
         }
       }
 
@@ -59,23 +41,21 @@ export class CreatelogController implements Controller {
 
       const {
         message,
-        rollNotation,
-        characterSheetId
+        characterSheetId,
+        checkType
       } = httpRequest.body
 
-      const isValidRoll = this.rollValidator.validate(rollNotation)
+      let type = ''
+      let rollResult = null
+      rollResult = this.rollGenerator.generate(message)
+
+      if (rollResult.die.length > 0) {
+        type = 'roll'
+      } else {
+        type = 'message'
+      }
 
       const createdAt = new Date()
-
-      let rollResult = null
-
-      if (type === 'roll' && !isValidRoll) {
-        return badRequest(new Error('Invalid roll'))
-      }
-
-      if (type === 'roll') {
-        rollResult = this.rollGenerator.generate(rollNotation)
-      }
 
       const log = await this.logAdder.add({
         userId: creator,
@@ -83,12 +63,20 @@ export class CreatelogController implements Controller {
         type,
         message,
         rollResult,
-        rollNotation,
+        checkType,
         createdAt
       })
 
+      const characterSheet = await this.characterSheetGetter.getById(characterSheetId)
+
       return ok({
-        log
+        userId: log.userId,
+        characterSheetId: log.characterSheetId,
+        characterSheetName: characterSheet.name,
+        type: log.type,
+        message: log.message,
+        rollResult: log.rollResult,
+        createdAt: log.createdAt
       })
     } catch (error) {
       console.log(error)
