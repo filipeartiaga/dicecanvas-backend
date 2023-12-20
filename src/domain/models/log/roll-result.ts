@@ -1,10 +1,18 @@
 export interface RollResult {
-  dices: Dice[]
+  die: Dice[]
   modifiers: number
   result: number
 }
 
 export interface Dice {
-  quality: number
+  notation: string
   result: number
+  rolls: Roll[]
+  hasAdvantage: boolean
+  hasDisadvantage: boolean
+}
+
+export interface Roll {
+  result: number
+  isUsed: boolean
 }

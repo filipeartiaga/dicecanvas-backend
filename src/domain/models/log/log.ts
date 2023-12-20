@@ -7,6 +7,6 @@ export interface LogModel {
   type: string
   message: string
   rollResult: RollResult
-  rollNotation: string
+  checkType: string
   createdAt: Date
 }
