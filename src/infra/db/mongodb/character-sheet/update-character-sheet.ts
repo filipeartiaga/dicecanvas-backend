@@ -36,7 +36,8 @@ export class UpdateCharacterSheetMongoRepository implements UpdateCharacterSheet
           attacks: characterSheet.attacks,
           equipment: characterSheet.equipment,
           featuresAndTraits: characterSheet.featuresAndTraits,
-          otherProficiencies: characterSheet.otherProficiencies
+          otherProficiencies: characterSheet.otherProficiencies,
+          buffsAndNerfs: characterSheet.buffsAndNerfs
         }
       },
       { returnDocument: 'after' }

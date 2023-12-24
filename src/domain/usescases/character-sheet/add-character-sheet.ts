@@ -72,6 +72,12 @@ export interface AddCharacterSheetModel {
   equipment: string[]
   featuresAndTraits: string[]
   otherProficiencies: string[]
+  buffsAndNerfs: {
+    guidance: boolean
+    bless: boolean
+    bane: boolean
+    resistance: boolean
+  }
   createdAt: Date
 }
 

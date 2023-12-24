@@ -13,9 +13,19 @@ export class RollGeneratorAdapter implements RollGenerator {
     let modifiersSum = 0
 
     componentsFromNotation.forEach(component => {
+      const originalNotation = component
       const isNegative = component.includes('-')
-      const hasAdvantage = component.includes('adv')
-      const hasDisadvantage = component.includes('dis')
+      let hasAdvantage = false
+      let hasDisadvantage = false
+
+      if (component[component.length - 1] === 'a' || component[component.length - 1] === 'A' || component[component.length - 1] === 'v' || component[component.length - 1] === 'V') {
+        component = component.slice(0, -1)
+        hasAdvantage = true
+      } else if (component[component.length - 1] === 'd' || component[component.length - 1] === 'D') {
+        component = component.slice(0, -1)
+        hasDisadvantage = true
+      }
+
       if (component.includes('d') || component.includes('D')) {
         const quantity = parseInt(component.replace('+', '').replace('-', '').split('d')[0]) || 1
         const quality = parseInt(component.replace('+', '').replace('-', '').split('d')[1])
@@ -52,7 +62,7 @@ export class RollGeneratorAdapter implements RollGenerator {
         })
 
         die.push({
-          notation: component,
+          notation: originalNotation,
           result: isNegative ? result * -1 : result,
           rolls,
           hasAdvantage,

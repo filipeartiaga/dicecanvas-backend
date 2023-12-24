@@ -64,11 +64,18 @@ export interface CharacterSheetModel {
   }
   attacks: Array<{
     name: string
-    bonus: string
+    roll: string
+    damage: string
     type: string
   }>
   equipment: string[]
   featuresAndTraits: string[]
   otherProficiencies: string[]
+  buffsAndNerfs: {
+    guidance: boolean
+    bless: boolean
+    bane: boolean
+    resistance: boolean
+  }
   createdAt: Date
 }

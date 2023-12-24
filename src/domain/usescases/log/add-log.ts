@@ -1,5 +1,5 @@
-import { RollResult } from '../../../domain/models/log/roll-result'
-import { LogModel } from '../../../domain/models/log/log'
+import { RollResult } from '../../models/log/roll-result'
+import { LogModel } from '../../models/log/log'
 
 export interface AddLogModel {
   userId: string

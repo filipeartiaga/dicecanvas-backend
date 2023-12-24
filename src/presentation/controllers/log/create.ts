@@ -49,7 +49,7 @@ export class CreateLogController implements Controller {
       let rollResult = null
       rollResult = this.rollGenerator.generate(message)
 
-      if (rollResult.die.length > 0) {
+      if (rollResult.result) {
         type = 'roll'
       } else {
         type = 'message'
