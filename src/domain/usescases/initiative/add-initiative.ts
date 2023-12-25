@@ -4,6 +4,7 @@ export interface AddInitiativeModel {
   name: string
   initiative: number
   isSurprised: boolean
+  isActive: boolean
 }
 
 export interface AddInitiative {
