@@ -14,6 +14,6 @@ export const makeGetAllInitiativeController = (): GetAllInitiativeController => 
   const authenticatedValidatorAdapter = new AuthenticatedValidatorAdapter(dbGetUser, userDecoderAdapter)
   const getAllInitiativeMongoRepository = new GetAllInitiativesMongoRepository()
   const dbGetAllInitiative = new DbGetAllInitiative(getAllInitiativeMongoRepository)
-  const controller = new GetAllInitiativeController(authenticatedValidatorAdapter, dbGetAllInitiative )
+  const controller = new GetAllInitiativeController(authenticatedValidatorAdapter, dbGetAllInitiative)
   return controller
 }
