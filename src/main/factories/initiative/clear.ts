@@ -2,9 +2,9 @@ import { AuthenticatedValidatorAdapter, UserDecoderAdapter } from '../../../util
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import env from '../../config/env'
-import { ClearInitiativeController } from 'src/presentation/controllers/initiative/clear'
-import { ClearInitiativeMongoRepository } from 'src/infra/db/mongodb/initiative/clear-initiative'
-import { DbClearInitiative } from 'src/data/usecases/initiative/db-clear-initiative'
+import { ClearInitiativeController } from '../../../presentation/controllers/initiative/clear'
+import { ClearInitiativeMongoRepository } from '../../../infra/db/mongodb/initiative/clear-initiative'
+import { DbClearInitiative } from '../../../data/usecases/initiative/db-clear-initiative'
 
 export const makeClearInitiativeController = (): ClearInitiativeController => {
   const getUserMongoRepository = new GetUserMongoRepository()

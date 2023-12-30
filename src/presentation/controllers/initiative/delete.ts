@@ -3,7 +3,7 @@ import { HttpRequest, HttpResponse } from '../../protocols/http'
 import { badRequest, ok, serverError, unauthorized } from '../../helpers/http-helpers'
 import { MissingParamError, UnauthorizedError } from '../../errors'
 import { InitiativeDeleter, InitiativeGetter } from '../../protocols/initiative'
-import { AuthenticatedValidator } from 'src/presentation/protocols/user'
+import { AuthenticatedValidator } from '../../protocols/user'
 
 export class DeleteInitiativeController implements Controller {
   private readonly authenticatedValidator: AuthenticatedValidator

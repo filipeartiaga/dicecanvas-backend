@@ -2,11 +2,11 @@ import { AuthenticatedValidatorAdapter, UserDecoderAdapter } from '../../../util
 import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { DbGetUser } from '../../../data/usecases/user/db-get-user'
 import env from '../../config/env'
-import { DeleteInitiativeController } from 'src/presentation/controllers/initiative/delete'
-import { GetInitiativeMongoRepository } from 'src/infra/db/mongodb/initiative/get-initiative'
-import { DbGetInitiative } from 'src/data/usecases/initiative/db-get-initiative'
-import { DbDeleteInitiative } from 'src/data/usecases/initiative/db-delete-initiative'
-import { DeleteInitiativeMongoRepository } from 'src/infra/db/mongodb/initiative/delete-initiative'
+import { DeleteInitiativeController } from '../../../presentation/controllers/initiative/delete'
+import { GetInitiativeMongoRepository } from '../../../infra/db/mongodb/initiative/get-initiative'
+import { DbGetInitiative } from '../../../data/usecases/initiative/db-get-initiative'
+import { DbDeleteInitiative } from '../../../data/usecases/initiative/db-delete-initiative'
+import { DeleteInitiativeMongoRepository } from '../../../infra/db/mongodb/initiative/delete-initiative'
 
 export const makeDeleteInitiativeController = (): DeleteInitiativeController => {
   const getUserMongoRepository = new GetUserMongoRepository()
