@@ -9,7 +9,7 @@ export class GetAllInitiativeController implements Controller {
   private readonly authenticatedValidator: AuthenticatedValidator
   private readonly allInitiativeGetter: AllInitiativeGetter
 
-  constructor (authenticatedValidator: AuthenticatedValidator, allInitiativeGetter: AllInitiativeGetter,) {
+  constructor (authenticatedValidator: AuthenticatedValidator, allInitiativeGetter: AllInitiativeGetter) {
     this.authenticatedValidator = authenticatedValidator
     this.allInitiativeGetter = allInitiativeGetter
   }
