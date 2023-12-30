@@ -6,7 +6,7 @@ import { GetAllInitiativeController } from 'src/presentation/controllers/initiat
 import { GetAllInitiativesMongoRepository } from 'src/infra/db/mongodb/initiative/get-all-initiatives'
 import { DbGetAllInitiative } from 'src/data/usecases/initiative/db-get-all-initiatives'
 
-export const makeDeleteLogController = (): GetAllInitiativeController => {
+export const makeGetAllInitiativeController = (): GetAllInitiativeController => {
   const getUserMongoRepository = new GetUserMongoRepository()
   const dbGetUser = new DbGetUser(getUserMongoRepository)
   const secret = env.jwtSecret

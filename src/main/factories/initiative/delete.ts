@@ -8,7 +8,7 @@ import { DbGetInitiative } from 'src/data/usecases/initiative/db-get-initiative'
 import { DbDeleteInitiative } from 'src/data/usecases/initiative/db-delete-initiative'
 import { DeleteInitiativeMongoRepository } from 'src/infra/db/mongodb/initiative/delete-initiative'
 
-export const makeDeleteLogController = (): DeleteInitiativeController => {
+export const makeDeleteInitiativeController = (): DeleteInitiativeController => {
   const getUserMongoRepository = new GetUserMongoRepository()
   const dbGetUser = new DbGetUser(getUserMongoRepository)
   const secret = env.jwtSecret
