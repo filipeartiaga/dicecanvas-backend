@@ -2,20 +2,16 @@ import { Controller } from '../../protocols/controller'
 import { HttpRequest, HttpResponse } from '../../protocols/http'
 import { badRequest, ok, serverError, unauthorized } from '../../helpers/http-helpers'
 import { MissingParamError, UnauthorizedError } from '../../errors'
-import { UserDecoder, AdminValidator, AuthenticatedValidator } from '../../protocols/user'
 import { InitiativeDeleter, InitiativeGetter } from '../../protocols/initiative'
+import { AuthenticatedValidator } from 'src/presentation/protocols/user'
 
 export class DeleteInitiativeController implements Controller {
   private readonly authenticatedValidator: AuthenticatedValidator
-  private readonly adminValidator: AdminValidator
-  private readonly userDecoder: UserDecoder
   private readonly initiativeGetter: InitiativeGetter
   private readonly initiativeDeleter: InitiativeDeleter
 
-  constructor (authenticatedValidator: AuthenticatedValidator, adminValidator: AdminValidator, userDecoder: UserDecoder, initiativeGetter: InitiativeGetter, initiativeDeleter: InitiativeDeleter) {
+  constructor (authenticatedValidator: AuthenticatedValidator, initiativeGetter: InitiativeGetter, initiativeDeleter: InitiativeDeleter) {
     this.authenticatedValidator = authenticatedValidator
-    this.adminValidator = adminValidator
-    this.userDecoder = userDecoder
     this.initiativeGetter = initiativeGetter
     this.initiativeDeleter = initiativeDeleter
   }
