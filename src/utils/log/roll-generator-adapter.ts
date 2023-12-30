@@ -4,9 +4,6 @@ import { RollGenerator } from '../../presentation/protocols/log/roll-generator'
 export class RollGeneratorAdapter implements RollGenerator {
   generate (diceNotation: string): RollResult {
     diceNotation = diceNotation.toLowerCase().replace(/ /g, '')
-
-    console.log(diceNotation)
-
     const componentsFromNotation = diceNotation.split(/(?=[+-])/)
 
     const die: Dice[] = []
