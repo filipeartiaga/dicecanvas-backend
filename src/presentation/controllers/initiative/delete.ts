@@ -20,7 +20,7 @@ export class DeleteInitiativeController implements Controller {
     try {
       const requiredFields = ['_id']
       for (const field of requiredFields) {
-        if (typeof httpRequest.body[field] === 'undefined') {
+        if (typeof httpRequest.headers[field] === 'undefined') {
           return badRequest(new MissingParamError(field))
         }
       }
@@ -34,11 +34,11 @@ export class DeleteInitiativeController implements Controller {
 
       const {
         _id
-      } = httpRequest.body._id
+      } = httpRequest.headers
 
       const initiative = await this.initiativeGetter.getById(_id)
 
-      if (initiative) {
+      if (!initiative) {
         return unauthorized(new UnauthorizedError())
       }
 
@@ -48,6 +48,7 @@ export class DeleteInitiativeController implements Controller {
         response
       })
     } catch (error) {
+      console.log(error)
       return serverError()
     }
   }
