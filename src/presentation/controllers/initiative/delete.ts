@@ -42,13 +42,12 @@ export class DeleteInitiativeController implements Controller {
         return unauthorized(new UnauthorizedError())
       }
 
-      const response = await this.initiativeDeleter.delete(_id)
+      const response = await this.initiativeDeleter.delete(initiative._id)
 
       return ok({
         response
       })
     } catch (error) {
-      console.log(error)
       return serverError()
     }
   }
