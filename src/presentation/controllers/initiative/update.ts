@@ -41,30 +41,25 @@ export class UpdateInitiativeController implements Controller {
         isMyTurn
       } = httpRequest.body
 
-      const exists = await this.initiativeGetter.getById(_id)
+      const initiativeToEdit = await this.initiativeGetter.getById(_id)
 
-      if (!exists) {
+      if (!initiativeToEdit) {
         return badRequest(new MissingParamError('_id'))
       }
 
-      const init = await this.initiativeUpdater.update({
-        _id,
-        name,
-        initiative,
-        isSurprised,
-        isActive,
-        isMyTurn
-      })
+      initiativeToEdit.name = name
+      initiativeToEdit.initiative = initiative
+      initiativeToEdit.isSurprised = isSurprised
+      initiativeToEdit.isActive = isActive
+      initiativeToEdit.isMyTurn = isMyTurn
+
+      const updatedInitiative = await this.initiativeUpdater.update(initiativeToEdit)
 
       return ok({
-        _id: init._id,
-        name: init.name,
-        initiative: init.initiative,
-        isSurprised: init.isSurprised,
-        isActive: init.isActive,
-        isMyTurn: init.isMyTurn
+        updatedInitiative
       })
     } catch (error) {
+      console.log(error)
       return serverError()
     }
   }
