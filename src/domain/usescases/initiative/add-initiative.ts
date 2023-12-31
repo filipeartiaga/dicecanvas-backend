@@ -5,6 +5,7 @@ export interface AddInitiativeModel {
   initiative: number
   isSurprised: boolean
   isActive: boolean
+  isMyTurn: boolean
 }
 
 export interface AddInitiative {

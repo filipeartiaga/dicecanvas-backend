@@ -34,14 +34,16 @@ export class CreateInitiativeController implements Controller {
         name,
         initiative,
         isSurprised,
-        isActive
+        isActive,
+        isMyTurn
       } = httpRequest.body
 
       const init = await this.initiativeAdder.add({
         name,
         initiative,
         isSurprised,
-        isActive
+        isActive,
+        isMyTurn
       })
 
       return ok({
@@ -49,7 +51,8 @@ export class CreateInitiativeController implements Controller {
         name: init.name,
         initiative: init.initiative,
         isSurprised: init.isSurprised,
-        isActive: init.isActive
+        isActive: init.isActive,
+        isMyTurn: init.isMyTurn
       })
     } catch (error) {
       return serverError()
