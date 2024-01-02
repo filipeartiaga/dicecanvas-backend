@@ -31,10 +31,17 @@ export class GetAllLogController implements Controller {
 
       const logsWithCharacterSheetName = await Promise.all(logs.map(async log => {
         const characterSheet = await this.characterSheetGetter.getById(log.characterSheetId)
+        let name = ''
+
+        if (!characterSheet) {
+          name = 'Deleted Character'
+        } else {
+          name = characterSheet.name
+        }
 
         return {
           ...log,
-          characterSheetName: characterSheet.name
+          characterSheetName: name
         }
       }))
 
