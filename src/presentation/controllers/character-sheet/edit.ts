@@ -83,7 +83,8 @@ export class EditCharacterSheetController implements Controller {
         equipment,
         featuresAndTraits,
         otherProficiencies,
-        buffsAndNerfs
+        buffsAndNerfs,
+        spellSlots
       } = httpRequest.body
 
       attacks.forEach((attack) => {
@@ -128,6 +129,7 @@ export class EditCharacterSheetController implements Controller {
       characterSheet.featuresAndTraits = featuresAndTraits
       characterSheet.otherProficiencies = otherProficiencies
       characterSheet.buffsAndNerfs = buffsAndNerfs
+      characterSheet.spellSlots = spellSlots
 
       characterSheet.equipment.forEach((equipment) => {
         if (equipment.length === 0) {

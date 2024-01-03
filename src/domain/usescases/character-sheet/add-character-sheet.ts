@@ -78,6 +78,11 @@ export interface AddCharacterSheetModel {
     bane: boolean
     resistance: boolean
   }
+  spellSlots: [{
+    level: number
+    used: number
+    total: number
+  }]
   createdAt: Date
 }
 
