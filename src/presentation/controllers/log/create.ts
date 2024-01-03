@@ -49,7 +49,9 @@ export class CreateLogController implements Controller {
       let rollResult = null
       rollResult = this.rollGenerator.generate(message)
 
-      if (rollResult.result) {
+      console.log(rollResult)
+
+      if (!isNaN(rollResult.result)) {
         type = 'roll'
       } else {
         type = 'message'
@@ -79,7 +81,6 @@ export class CreateLogController implements Controller {
         createdAt: log.createdAt
       })
     } catch (error) {
-      console.log(error)
       return serverError()
     }
   }
