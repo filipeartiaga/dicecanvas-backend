@@ -16,7 +16,7 @@ export class ClearInitiativeController implements Controller {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const requiredFields = ['name', 'initiative', 'isSurprised', 'isActive', 'isMyTurn']
+      const requiredFields = []
       for (const field of requiredFields) {
         if (typeof httpRequest.body[field] === 'undefined') {
           return badRequest(new MissingParamError(field))
@@ -36,6 +36,7 @@ export class ClearInitiativeController implements Controller {
         message: 'Initiative cleared'
       })
     } catch (error) {
+      console.log(error)
       return serverError()
     }
   }
