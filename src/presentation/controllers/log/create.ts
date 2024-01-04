@@ -49,8 +49,6 @@ export class CreateLogController implements Controller {
       let rollResult = null
       rollResult = this.rollGenerator.generate(message)
 
-      console.log(rollResult)
-
       if (!isNaN(rollResult.result)) {
         type = 'roll'
       } else {
