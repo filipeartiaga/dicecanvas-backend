@@ -79,9 +79,15 @@ export interface AddCharacterSheetModel {
     resistance: boolean
   }
   spellSlots: [{
-    level: number
-    used: number
-    total: number
+    slots: [{
+      used: boolean
+    }]
+  }]
+  customSlots: [{
+    name: string
+    slots: [{
+      used: boolean
+    }]
   }]
   createdAt: Date
 }
