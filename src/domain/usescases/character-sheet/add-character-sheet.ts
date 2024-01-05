@@ -89,6 +89,13 @@ export interface AddCharacterSheetModel {
       used: boolean
     }]
   }]
+  wealth: {
+    copper: number
+    silver: number
+    electrum: number
+    gold: number
+    platinum: number
+  }
   createdAt: Date
 }
 

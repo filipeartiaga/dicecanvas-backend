@@ -39,7 +39,8 @@ export class UpdateCharacterSheetMongoRepository implements UpdateCharacterSheet
           otherProficiencies: characterSheet.otherProficiencies,
           buffsAndNerfs: characterSheet.buffsAndNerfs,
           spellSlots: characterSheet.spellSlots,
-          customSlots: characterSheet.customSlots
+          customSlots: characterSheet.customSlots,
+          wealth: characterSheet.wealth
         }
       },
       { returnDocument: 'after' }

@@ -66,7 +66,8 @@ export class CreateCharacterSheetController implements Controller {
         otherProficiencies,
         buffsAndNerfs,
         spellSlots,
-        customSlots
+        customSlots,
+        wealth
       } = httpRequest.body
 
       const createdAt = new Date()
@@ -105,6 +106,7 @@ export class CreateCharacterSheetController implements Controller {
         buffsAndNerfs,
         spellSlots,
         customSlots,
+        wealth,
         createdAt
       })
 
