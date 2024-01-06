@@ -1,12 +1,16 @@
-const io = require('socket.io')(3000, {
+import { createServer } from 'http'
+import { Server, Socket } from 'socket.io'
+
+const httpServer = createServer()
+const io = new Server(httpServer, {
   cors: {
-    origin: '*'
+    origin: '*',
+    methods: ['GET', 'POST']
   }
 })
 
-io.on('connection', (socket: any) => {
-  console.log('a user connected')
-  socket.on('disconnect', () => {
-    console.log('user disconnected')
-  })
+io.on('connection', (socket: Socket) => {
+  console.log('user connected')
 })
+
+httpServer.listen(3000)
