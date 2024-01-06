@@ -1,7 +1,6 @@
 const io = require('socket.io')(3000, {
-  allowRequest: (req, callback) => {
-    const noOriginHeader = req.headers.origin === undefined
-    callback(null, noOriginHeader)
+  cors: {
+    origin: 'https://dicecanvas.com'
   }
 })
 
