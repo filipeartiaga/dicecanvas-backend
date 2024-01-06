@@ -4,8 +4,10 @@ import { Server as SocketIOServer } from 'socket.io'
 const makeIo = (server: Server): SocketIOServer => {
   const io = require('socket.io')(server, {
     cors: {
-      origin: 'http://localhost:5173',
-      methods: ['GET', 'POST']
+      origin: 'https://dicecanvas.com',
+      methods: ['GET', 'POST'],
+      allowedHeaders: ['my-custom-header'],
+      credentials: true
     }
   })
 
