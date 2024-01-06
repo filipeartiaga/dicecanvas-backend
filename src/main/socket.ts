@@ -1,7 +1,7 @@
 const io = require('socket.io')(3000, {
-  cors: {
-    origin: 'http://localhost:8080',
-    methods: ['GET', 'POST']
+  allowRequest: (req, callback) => {
+    const noOriginHeader = req.headers.origin === undefined
+    callback(null, noOriginHeader)
   }
 })
 
