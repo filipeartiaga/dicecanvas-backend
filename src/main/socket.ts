@@ -1,16 +1,13 @@
-import { createServer } from 'http'
-import { Server, Socket } from 'socket.io'
-
-const httpServer = createServer()
-const io = new Server(httpServer, {
+const io = require('socket.io')(3000, {
   cors: {
-    origin: '*',
-    methods: ['GET', 'POST']
+    origin: '*'
   }
 })
 
-io.on('connection', (socket: Socket) => {
-  console.log('user connected')
+io.on('connection', (socket: any) => {
+  console.log('connected')
+  socket.on('message', (msg: any) => {
+    console.log(msg)
+    io.emit('message', msg)
+  })
 })
-
-httpServer.listen(3000)
