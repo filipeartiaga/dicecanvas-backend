@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
+    "websocket": "nodemon --exec sucrase-node src/main/socket.ts",
     "dev": "nodemon --exec sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "lint": "eslint --fix --ext .js,.jsx,.ts ."
