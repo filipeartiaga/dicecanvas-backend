@@ -32,7 +32,7 @@ export class SignUpController implements Controller {
 
       const { name, email } = httpRequest.body
 
-      const isValid = this.emailValidator.isValidExitlagMail(email)
+      const isValid = this.emailValidator.isValid(email)
       if (!isValid) {
         return badRequest(new InvalidEmailError())
       }

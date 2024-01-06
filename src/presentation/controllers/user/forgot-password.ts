@@ -32,7 +32,7 @@ export class ForgotPasswordController implements Controller {
 
       const { email } = httpRequest.body
 
-      const isValid = this.emailValidator.isValidExitlagMail(email)
+      const isValid = this.emailValidator.isValid(email)
       if (!isValid) {
         return badRequest(new InvalidParamError('email'))
       }
