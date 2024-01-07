@@ -24,7 +24,7 @@ export class DeleteCharacterSheetController implements Controller {
     try {
       const requiredFields = ['_id']
       for (const field of requiredFields) {
-        if (typeof httpRequest.headers[field] === 'undefined') {
+        if (typeof httpRequest.body[field] === 'undefined') {
           return badRequest(new MissingParamError(field))
         }
       }
@@ -38,7 +38,7 @@ export class DeleteCharacterSheetController implements Controller {
 
       const {
         _id
-      } = httpRequest.headers
+      } = httpRequest.body
 
       const characterSheet = await this.characterSheetGetter.getById(_id)
 
@@ -60,6 +60,7 @@ export class DeleteCharacterSheetController implements Controller {
         response
       })
     } catch (error) {
+      console.log(error)
       return serverError()
     }
   }
