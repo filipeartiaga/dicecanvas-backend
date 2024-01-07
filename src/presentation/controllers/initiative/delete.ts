@@ -20,7 +20,7 @@ export class DeleteInitiativeController implements Controller {
     try {
       const requiredFields = ['_id']
       for (const field of requiredFields) {
-        if (typeof httpRequest.headers[field] === 'undefined') {
+        if (typeof httpRequest.body[field] === 'undefined') {
           return badRequest(new MissingParamError(field))
         }
       }
@@ -34,7 +34,7 @@ export class DeleteInitiativeController implements Controller {
 
       const {
         _id
-      } = httpRequest.headers
+      } = httpRequest.body
 
       const initiative = await this.initiativeGetter.getById(_id)
 
