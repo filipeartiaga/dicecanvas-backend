@@ -27,10 +27,10 @@ export class GetAllMyCharacterSheetController implements Controller {
 
       const myUser = this.userDecoder.decode(accessToken)
 
-      const allMyCharacterSheet = await this.allMyCharacterSheetGetter.getAllMyCharacterSheet(myUser)
+      const characterSheets = await this.allMyCharacterSheetGetter.getAllMyCharacterSheet(myUser)
 
       return ok({
-        allMyCharacterSheet
+        characterSheets
       })
     } catch (error) {
       return serverError()
