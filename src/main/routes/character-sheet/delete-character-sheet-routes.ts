@@ -3,5 +3,5 @@ import { adaptRoute } from '../../adapters/express-route-adapter'
 import { makeDeleteCharacterSheetController } from '../../factories/character-sheet/delete'
 
 export default (router: Router): void => {
-  router.delete('/character-sheets/', adaptRoute(makeDeleteCharacterSheetController()))
+  router.delete('/api/character-sheets/', adaptRoute(makeDeleteCharacterSheetController()))
 }

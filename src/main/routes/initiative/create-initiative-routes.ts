@@ -3,5 +3,5 @@ import { adaptRoute } from '../../adapters/express-route-adapter'
 import { makeCreateInitiativeController } from '../../../main/factories/initiative/create'
 
 export default (router: Router): void => {
-  router.post('/initiatives/', adaptRoute(makeCreateInitiativeController()))
+  router.post('/api/initiatives/', adaptRoute(makeCreateInitiativeController()))
 }
