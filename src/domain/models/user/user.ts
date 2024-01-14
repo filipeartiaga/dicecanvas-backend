@@ -8,5 +8,10 @@ export interface UserModel {
   passwordResetToken: string
   passwordResetExpires: Date
   firstAccessToken: string
+  userSettings: UserSettings
   createdAt: Date
+}
+
+export interface UserSettings {
+  autoScroll: boolean
 }
