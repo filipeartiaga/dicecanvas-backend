@@ -1,3 +1,4 @@
+import { UserSettings } from 'src/domain/models/user/user'
 import { MissingParamError, RegisteredParmError } from '../../errors/'
 import { InvalidEmailError } from '../../errors/invalid-email-error'
 import { badRequest, ok, serverError } from '../../helpers/http-helpers'
@@ -45,11 +46,16 @@ export class SignUpController implements Controller {
       const firstAccessToken = this.firstAccessTokenGenerator.generate(4)
       const createdAt = new Date(Date.now())
 
+      const userSettings: UserSettings = {
+        autoScroll: true
+      }
+
       const user = await this.userAdder.add({
         name,
         email,
         firstAccessToken,
         role: 'user',
+        userSettings,
         createdAt
       })
 
