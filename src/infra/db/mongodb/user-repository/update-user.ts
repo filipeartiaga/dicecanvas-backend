@@ -7,7 +7,7 @@ export class UpdateUserMongoRepository implements UpdateUserRepository {
     const userCollection = await MongoHelper.getCollection('users')
     const result = await userCollection.findOneAndUpdate(
       { _id: user._id },
-      { $set: { password: user.password, name: user.name, isVerified: user.isVerified, passwordResetToken: user.passwordResetToken, passwordResetExpires: user.passwordResetExpires } },
+      { $set: { password: user.password, name: user.name, isVerified: user.isVerified, passwordResetToken: user.passwordResetToken, passwordResetExpires: user.passwordResetExpires, userSettings: user.userSettings } },
       { returnDocument: 'after' }
     )
     return result.value
