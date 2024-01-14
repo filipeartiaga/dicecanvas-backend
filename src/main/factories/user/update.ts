@@ -1,10 +1,10 @@
-import { GetUserMongoRepository } from 'src/infra/db/mongodb/user-repository/get-user'
+import { GetUserMongoRepository } from '../../../infra/db/mongodb/user-repository/get-user'
 import { UpdateUserController } from '../../../presentation/controllers/user/update'
-import { DbGetUser } from 'src/data/usecases/user/db-get-user'
-import env from 'src/main/config/env'
-import { UserDecoderAdapter } from 'src/utils/user/user-decoder-adapter'
-import { DbUpdateUser } from 'src/data/usecases/user/db-update-user'
-import { UpdateUserMongoRepository } from 'src/infra/db/mongodb/user-repository/update-user'
+import { DbGetUser } from '../../../data/usecases/user/db-get-user'
+import env from '../../../main/config/env'
+import { UserDecoderAdapter } from '../../../utils/user/user-decoder-adapter'
+import { DbUpdateUser } from '../../../data/usecases/user/db-update-user'
+import { UpdateUserMongoRepository } from '../../../infra/db/mongodb/user-repository/update-user'
 
 export const makeUpdateUserController = (): UpdateUserController => {
   const secret = env.jwtSecret

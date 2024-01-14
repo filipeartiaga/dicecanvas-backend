@@ -1,4 +1,4 @@
-import { UserSettings } from 'src/domain/models/user/user'
+import { UserSettings } from '../../../domain/models/user/user'
 import { MissingParamError, RegisteredParmError } from '../../errors/'
 import { InvalidEmailError } from '../../errors/invalid-email-error'
 import { badRequest, ok, serverError } from '../../helpers/http-helpers'
