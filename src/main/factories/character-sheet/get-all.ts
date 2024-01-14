@@ -14,6 +14,6 @@ export const makeGetAllCharacterSheetController = (): GetAllCharacterSheetContro
   const getAllCharacterSheetMongoRepository = new GetAllCharacterSheetMongoRepository()
   const dbGetAllCharacterSheet = new DbGetAllCharacterSheet(getAllCharacterSheetMongoRepository)
   const adminValidatorAdapter = new AdminValidatorAdapter(dbGetUser, userDecoderAdapter)
-  const controller = new GetAllCharacterSheetController(adminValidatorAdapter, dbGetAllCharacterSheet)
+  const controller = new GetAllCharacterSheetController(adminValidatorAdapter, dbGetAllCharacterSheet, userDecoderAdapter)
   return controller
 }
