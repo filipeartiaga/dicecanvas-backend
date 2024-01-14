@@ -1,10 +1,11 @@
-import { UserModel } from '../../models/user/user'
+import { UserModel, UserSettings } from '../../models/user/user'
 
 export interface AddUserModel {
   name: string
   email: string
   firstAccessToken: string
   role: string
+  userSettings: UserSettings
   createdAt: Date
 }
 
