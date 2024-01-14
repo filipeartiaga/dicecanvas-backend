@@ -32,6 +32,7 @@ export class GetMyUserController implements Controller {
         email: user.email,
         role: user.role,
         isVerified: user.isVerified,
+        userSettings: user.userSettings,
         createdAt: user.createdAt
       })
     } catch (error) {
