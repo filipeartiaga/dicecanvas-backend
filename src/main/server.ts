@@ -1,3 +1,4 @@
+import { RollResult } from 'src/domain/models/log/roll-result'
 import { MongoHelper } from '../infra/db/mongodb/helpers/mongo-helper'
 import env from './config/env'
 
@@ -10,6 +11,10 @@ MongoHelper.connect(env.mongoUrl)
     io.on('connection', (socket) => {
       socket.on('message', (data) => {
         io.emit('message', data)
+      })
+
+      socket.on('send-log', (rollResult: RollResult, emitter: string) => {
+        io.emit('new-log', rollResult, emitter)
       })
     })
 
