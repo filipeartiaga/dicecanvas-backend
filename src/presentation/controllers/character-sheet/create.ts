@@ -18,7 +18,7 @@ export class CreateCharacterSheetController implements Controller {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const requiredFields = ['name', 'baseClass', 'race', 'level', 'background', 'alignment', 'experiencePoints', 'inspiration', 'proficiencyBonus', 'armorClass', 'initiative', 'speed', 'maxHitpoints', 'currentHitpoints', 'temporaryHitpoints', 'hitDice', 'totalHitDice', 'personalityTraits', 'ideals', 'bonds', 'flaws', 'abilityScores', 'savingThrows', 'skills', 'deathSaves', 'attacks', 'equipment', 'featuresAndTraits', 'otherProficiencies', 'buffsAndNerfs', 'spellSlots']
+      const requiredFields = ['name', 'baseClass', 'race', 'level', 'background', 'alignment', 'experiencePoints', 'inspiration', 'proficiencyBonus', 'armorClass', 'initiative', 'speed', 'maxHitpoints', 'currentHitpoints', 'temporaryHitpoints', 'hitDice', 'totalHitDice', 'personalityTraits', 'ideals', 'bonds', 'flaws', 'abilityScores', 'savingThrows', 'skills', 'deathSaves', 'attacks', 'equipment', 'featuresAndTraits', 'otherProficiencies', 'buffsAndNerfs', 'spellSlots', 'expertize']
       for (const field of requiredFields) {
         if (typeof httpRequest.body[field] === 'undefined') {
           return badRequest(new MissingParamError(field))
@@ -67,7 +67,8 @@ export class CreateCharacterSheetController implements Controller {
         buffsAndNerfs,
         spellSlots,
         customSlots,
-        wealth
+        wealth,
+        expertize
       } = httpRequest.body
 
       const createdAt = new Date()
@@ -107,6 +108,7 @@ export class CreateCharacterSheetController implements Controller {
         spellSlots,
         customSlots,
         wealth,
+        expertize,
         createdAt
       })
 

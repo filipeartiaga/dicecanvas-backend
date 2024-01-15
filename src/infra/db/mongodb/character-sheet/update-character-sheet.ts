@@ -40,7 +40,8 @@ export class UpdateCharacterSheetMongoRepository implements UpdateCharacterSheet
           buffsAndNerfs: characterSheet.buffsAndNerfs,
           spellSlots: characterSheet.spellSlots,
           customSlots: characterSheet.customSlots,
-          wealth: characterSheet.wealth
+          wealth: characterSheet.wealth,
+          expertize: characterSheet.expertize
         }
       },
       { returnDocument: 'after' }
