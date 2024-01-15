@@ -1,7 +1,7 @@
-import { RollResult } from 'src/domain/models/log/roll-result'
 import { MongoHelper } from '../infra/db/mongodb/helpers/mongo-helper'
 import env from './config/env'
 import { CharacterSheetModel } from 'src/domain/models/character-sheet/character-sheet'
+import { LogModel } from '../domain/models/log/log'
 
 MongoHelper.connect(env.mongoUrl)
   .then(async () => {
@@ -10,8 +10,12 @@ MongoHelper.connect(env.mongoUrl)
     const io = (await import('./config/io')).default(server)
 
     io.on('connection', (socket) => {
-      socket.on('send-new-log', (rollResult: RollResult) => {
+      socket.on('send-new-log', (rollResult: LogModel) => {
         socket.broadcast.emit('new-log', rollResult)
+      })
+
+      socket.on('send-new-dice', (rollResult: LogModel, checkType: string) => {
+        io.emit('new-dice', rollResult, checkType)
       })
 
       socket.on('send-character-delete', ({ characterSheetId, emitter }) => {
