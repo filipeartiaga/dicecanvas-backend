@@ -10,7 +10,7 @@ MongoHelper.connect(env.mongoUrl)
     const io = (await import('./config/io')).default(server)
 
     io.on('connection', (socket) => {
-      socket.on('send-log', (rollResult: RollResult) => {
+      socket.on('send-new-log', (rollResult: RollResult) => {
         socket.broadcast.emit('new-log', rollResult)
       })
 
@@ -20,6 +20,18 @@ MongoHelper.connect(env.mongoUrl)
 
       socket.on('send-character-create', (characterSheet: CharacterSheetModel) => {
         socket.broadcast.emit('character-create', characterSheet)
+      })
+
+      socket.on('send-new-initiative', () => {
+        io.emit('new-initiative')
+      })
+
+      socket.on('send-update-initiative', () => {
+        io.emit('update-initiative')
+      })
+
+      socket.on('send-delete-initiative', () => {
+        io.emit('delete-initiative')
       })
     })
 
