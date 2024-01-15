@@ -12,10 +12,7 @@ export interface CharacterSheetModel {
   alignment: string
   experiencePoints: number
   inspiration: boolean
-  proficiencyBonus: number
   armorClass: number
-  initiative: number
-  speed: number
   maxHitpoints: number
   currentHitpoints: number
   temporaryHitpoints: number

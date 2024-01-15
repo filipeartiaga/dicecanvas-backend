@@ -62,10 +62,7 @@ export class EditCharacterSheetController implements Controller {
         alignment,
         experiencePoints,
         inspiration,
-        proficiencyBonus,
         armorClass,
-        initiative,
-        speed,
         maxHitpoints,
         currentHitpoints,
         temporaryHitpoints,
@@ -111,10 +108,7 @@ export class EditCharacterSheetController implements Controller {
       characterSheet.alignment = alignment
       characterSheet.experiencePoints = experiencePoints
       characterSheet.inspiration = inspiration
-      characterSheet.proficiencyBonus = proficiencyBonus
       characterSheet.armorClass = armorClass
-      characterSheet.initiative = initiative
-      characterSheet.speed = speed
       characterSheet.maxHitpoints = maxHitpoints
       characterSheet.currentHitpoints = currentHitpoints
       characterSheet.temporaryHitpoints = temporaryHitpoints

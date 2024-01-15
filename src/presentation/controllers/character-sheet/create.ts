@@ -18,7 +18,7 @@ export class CreateCharacterSheetController implements Controller {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const requiredFields = ['name', 'classes', 'race', 'level', 'background', 'alignment', 'experiencePoints', 'inspiration', 'proficiencyBonus', 'armorClass', 'initiative', 'speed', 'maxHitpoints', 'currentHitpoints', 'temporaryHitpoints', 'hitDice', 'totalHitDice', 'personalityTraits', 'ideals', 'bonds', 'flaws', 'abilityScores', 'savingThrows', 'skills', 'deathSaves', 'attacks', 'equipment', 'featuresAndTraits', 'otherProficiencies', 'buffsAndNerfs', 'spellSlots', 'expertize', 'aditionalConfigs']
+      const requiredFields = ['name', 'classes', 'race', 'level', 'background', 'alignment', 'experiencePoints', 'inspiration', 'armorClass', 'maxHitpoints', 'currentHitpoints', 'temporaryHitpoints', 'hitDice', 'totalHitDice', 'personalityTraits', 'ideals', 'bonds', 'flaws', 'abilityScores', 'savingThrows', 'skills', 'deathSaves', 'attacks', 'equipment', 'featuresAndTraits', 'otherProficiencies', 'buffsAndNerfs', 'spellSlots', 'expertize', 'aditionalConfigs']
       for (const field of requiredFields) {
         if (typeof httpRequest.body[field] === 'undefined') {
           return badRequest(new MissingParamError(field))
@@ -43,10 +43,7 @@ export class CreateCharacterSheetController implements Controller {
         alignment,
         experiencePoints,
         inspiration,
-        proficiencyBonus,
         armorClass,
-        initiative,
-        speed,
         maxHitpoints,
         currentHitpoints,
         temporaryHitpoints,
@@ -84,10 +81,7 @@ export class CreateCharacterSheetController implements Controller {
         alignment,
         experiencePoints,
         inspiration,
-        proficiencyBonus,
         armorClass,
-        initiative,
-        speed,
         maxHitpoints,
         currentHitpoints,
         temporaryHitpoints,
