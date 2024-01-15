@@ -3,7 +3,10 @@ import { CharacterSheetModel } from '../../models/character-sheet/character-shee
 export interface AddCharacterSheetModel {
   creator: string
   name: string
-  baseClass: string
+  classes: [{
+    name: string
+    level: number
+  }]
   race: string
   level: number
   background: string

@@ -55,7 +55,7 @@ export class EditCharacterSheetController implements Controller {
 
       const {
         name,
-        baseClass,
+        classes,
         race,
         level,
         background,
@@ -104,7 +104,7 @@ export class EditCharacterSheetController implements Controller {
       })
 
       characterSheet.name = name
-      characterSheet.baseClass = baseClass
+      characterSheet.classes = classes
       characterSheet.race = race
       characterSheet.level = level
       characterSheet.background = background

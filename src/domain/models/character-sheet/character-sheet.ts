@@ -2,7 +2,10 @@ export interface CharacterSheetModel {
   _id: string
   creator: string
   name: string
-  baseClass: string
+  classes: [{
+    name: string
+    level: number
+  }]
   race: string
   level: number
   background: string
