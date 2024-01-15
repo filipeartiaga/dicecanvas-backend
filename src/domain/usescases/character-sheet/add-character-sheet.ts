@@ -96,7 +96,7 @@ export interface AddCharacterSheetModel {
     gold: number
     platinum: number
   }
-  expertize?: {
+  expertize: {
     acrobatics: boolean
     animalHandling: boolean
     arcana: boolean
@@ -115,6 +115,10 @@ export interface AddCharacterSheetModel {
     sleightOfHand: boolean
     stealth: boolean
     survival: boolean
+  }
+  aditionalConfigs: {
+    bonusInitiative: number
+    bonusSpeed: number
   }
   createdAt: Date
 }

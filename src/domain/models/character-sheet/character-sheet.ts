@@ -115,5 +115,10 @@ export interface CharacterSheetModel {
     stealth: boolean
     survival: boolean
   }
+  aditionalConfigs: {
+    bonusProficiency: number
+    bonusInitiative: number
+    bonusSpeed: number
+  }
   createdAt: Date
 }

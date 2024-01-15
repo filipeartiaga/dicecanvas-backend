@@ -87,7 +87,8 @@ export class EditCharacterSheetController implements Controller {
         spellSlots,
         customSlots,
         wealth,
-        expertize
+        expertize,
+        aditionalConfigs
       } = httpRequest.body
 
       attacks.forEach((attack) => {
@@ -136,6 +137,7 @@ export class EditCharacterSheetController implements Controller {
       characterSheet.customSlots = customSlots
       characterSheet.wealth = wealth
       if (expertize) characterSheet.expertize = expertize
+      if (aditionalConfigs) characterSheet.aditionalConfigs = aditionalConfigs
 
       characterSheet.equipment.forEach((equipment) => {
         if (equipment.length === 0) {
