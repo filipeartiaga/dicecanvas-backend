@@ -23,6 +23,6 @@ MongoHelper.connect(env.mongoUrl)
       })
     })
 
-    server.listen(env.port, () => { console.log(`Server is running at http://localhost:${env.port}`) })
+    app.listen(env.port, () => { console.log(`Server is running at http://localhost:${env.port}`) })
   })
   .catch(console.error)
