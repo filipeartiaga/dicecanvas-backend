@@ -157,6 +157,12 @@ export class EditCharacterSheetController implements Controller {
         }
       })
 
+      characterSheet.classes.forEach((classItem) => {
+        if (classItem.name === '' || classItem.level === 0) {
+          characterSheet.classes.splice(characterSheet.classes.indexOf(classItem), 1)
+        }
+      })
+
       const updatedCharacterSheet = await this.characterSheetUpdater.update(characterSheet)
 
       return ok({

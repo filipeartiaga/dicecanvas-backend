@@ -9,7 +9,7 @@ export class UpdateCharacterSheetMongoRepository implements UpdateCharacterSheet
       {
         $set: {
           name: characterSheet.name,
-          baseClass: characterSheet.baseClass,
+          classes: characterSheet.classes,
           race: characterSheet.race,
           level: characterSheet.level,
           background: characterSheet.background,
