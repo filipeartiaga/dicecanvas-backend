@@ -78,6 +78,7 @@ export class EditCharacterSheetController implements Controller {
         deathSaves,
         attacks,
         equipment,
+        feats,
         featuresAndTraits,
         otherProficiencies,
         buffsAndNerfs,
@@ -124,6 +125,7 @@ export class EditCharacterSheetController implements Controller {
       characterSheet.deathSaves = deathSaves
       characterSheet.attacks = attacks
       characterSheet.equipment = equipment
+      characterSheet.feats = feats
       characterSheet.featuresAndTraits = featuresAndTraits
       characterSheet.otherProficiencies = otherProficiencies
       characterSheet.buffsAndNerfs = buffsAndNerfs

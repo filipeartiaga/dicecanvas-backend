@@ -69,6 +69,7 @@ export interface CharacterSheetModel {
     type: string
   }>
   equipment: string[]
+  feats: string[]
   featuresAndTraits: string[]
   otherProficiencies: string[]
   buffsAndNerfs: {

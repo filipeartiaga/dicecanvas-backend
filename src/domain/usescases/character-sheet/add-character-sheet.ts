@@ -70,6 +70,7 @@ export interface AddCharacterSheetModel {
     damageType: string
   }>
   equipment: string[]
+  feats: string[]
   featuresAndTraits: string[]
   otherProficiencies: string[]
   buffsAndNerfs: {

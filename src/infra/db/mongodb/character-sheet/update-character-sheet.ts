@@ -32,6 +32,7 @@ export class UpdateCharacterSheetMongoRepository implements UpdateCharacterSheet
           deathSaves: characterSheet.deathSaves,
           attacks: characterSheet.attacks,
           equipment: characterSheet.equipment,
+          feats: characterSheet.feats,
           featuresAndTraits: characterSheet.featuresAndTraits,
           otherProficiencies: characterSheet.otherProficiencies,
           buffsAndNerfs: characterSheet.buffsAndNerfs,
