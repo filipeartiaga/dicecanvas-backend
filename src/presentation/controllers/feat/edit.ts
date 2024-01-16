@@ -2,12 +2,11 @@ import { Controller } from '../../protocols/controller'
 import { HttpRequest, HttpResponse } from '../../protocols/http'
 import { badRequest, ok, serverError, unauthorized } from '../../helpers/http-helpers'
 import { InvalidParamError, MissingParamError, UnauthorizedError } from '../../errors'
-import { UserDecoder, AdminValidator } from '../../protocols/user'
+import { AdminValidator } from '../../protocols/user'
 import { FeatGetter, FeatUpdater } from '../../protocols/feat'
 
 export class EditFeatController implements Controller {
   private readonly adminValidator: AdminValidator
-  private readonly userDecoder: UserDecoder
   private readonly featGetter: FeatGetter
   private readonly featUpdater: FeatUpdater
 
@@ -50,10 +49,10 @@ export class EditFeatController implements Controller {
         prerequisites
       } = httpRequest.body
 
-      if (name) feat.name = name
-      if (abilityScoresIncreaseOptions) feat.abilityScoresIncreaseOptions = abilityScoresIncreaseOptions
-      if (description) feat.description = description
-      if (prerequisites) feat.prerequisites = prerequisites
+      feat.name = name
+      feat.abilityScoresIncreaseOptions = abilityScoresIncreaseOptions
+      feat.description = description
+      feat.prerequisites = prerequisites
 
       const updatedFeat = await this.featUpdater.update(feat)
 
