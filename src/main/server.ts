@@ -10,8 +10,8 @@ MongoHelper.connect(env.mongoUrl)
     const io = (await import('./config/io')).default(server)
 
     io.on('connection', (socket) => {
-      socket.on('send-new-log', (rollResult: LogModel) => {
-        socket.broadcast.emit('new-log', rollResult)
+      socket.on('send-new-log', (rollResult: LogModel, checktype: string) => {
+        socket.broadcast.emit('new-log', rollResult, checktype)
       })
 
       socket.on('send-new-dice', (rollResult: LogModel, checkType: string) => {
