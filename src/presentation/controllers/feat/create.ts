@@ -16,7 +16,7 @@ export class CreateFeatController implements Controller {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const requiredFields = ['name', 'abilityScoresIncrease', 'description', 'prerequisites']
+      const requiredFields = ['name', 'abilityScoresIncreaseOptions', 'description', 'prerequisites']
       for (const field of requiredFields) {
         if (typeof httpRequest.body[field] === 'undefined') {
           return badRequest(new MissingParamError(field))
@@ -32,14 +32,14 @@ export class CreateFeatController implements Controller {
 
       const {
         name,
-        abilityScoresIncrease,
+        abilityScoresIncreaseOptions,
         description,
         prerequisites
       } = httpRequest.body
 
       const feat = await this.featAdder.add({
         name,
-        abilityScoresIncrease,
+        abilityScoresIncreaseOptions,
         description,
         prerequisites
       })

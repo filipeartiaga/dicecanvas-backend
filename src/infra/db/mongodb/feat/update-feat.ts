@@ -9,7 +9,7 @@ export class UpdateFeatMongoRepository implements UpdateFeatMongoRepository {
       {
         $set: {
           name: feat.name,
-          abilityScoresIncrease: feat.abilityScoresIncrease,
+          abilityScoresIncreaseOptions: feat.abilityScoresIncreaseOptions,
           description: feat.description,
           prerequisites: feat.prerequisites
         }

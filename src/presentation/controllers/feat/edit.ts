@@ -45,13 +45,13 @@ export class EditFeatController implements Controller {
 
       const {
         name,
-        abilityScoresIncrease,
+        abilityScoresIncreaseOptions,
         description,
         prerequisites
       } = httpRequest.body
 
       if (name) feat.name = name
-      if (abilityScoresIncrease) feat.abilityScoresIncrease = abilityScoresIncrease
+      if (abilityScoresIncreaseOptions) feat.abilityScoresIncreaseOptions = abilityScoresIncreaseOptions
       if (description) feat.description = description
       if (prerequisites) feat.prerequisites = prerequisites
 
