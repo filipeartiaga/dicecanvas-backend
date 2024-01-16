@@ -1,5 +1,5 @@
-import { CharacterSheetModel } from '../../../domain/models/character-sheet/character-sheet'
+import { FeatModel } from '../../../domain/models/feat/feat'
 
-export interface AllCharacterSheetGetter {
-  getAll(): Promise<CharacterSheetModel[]>
+export interface AllFeatGetter {
+  getAll(): Promise<FeatModel[]>
 }

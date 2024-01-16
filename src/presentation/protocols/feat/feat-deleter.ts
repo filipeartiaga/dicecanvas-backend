@@ -1,3 +1,3 @@
-export interface CharacterSheetDeleter {
-  delete(characterSheetIds: string): Promise<any>
+export interface FeatDeleter {
+  delete(FeatIds: string): Promise<any>
 }
