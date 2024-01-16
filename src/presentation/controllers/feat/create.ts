@@ -2,18 +2,16 @@ import { FeatAdder } from '../../protocols/feat'
 import { HttpRequest, HttpResponse } from '../../protocols/http'
 import { badRequest, ok, serverError, unauthorized } from '../../helpers/http-helpers'
 import { MissingParamError, UnauthorizedError } from '../../errors'
-import { UserDecoder, AdminValidator } from '../../protocols/user'
+import { AdminValidator } from '../../protocols/user'
 import { Controller } from '../../protocols/controller'
 
 export class CreateFeatController implements Controller {
   private readonly adminValidator: AdminValidator
   private readonly featAdder: FeatAdder
-  private readonly userDecoder: UserDecoder
 
-  constructor (adminValidator: AdminValidator, featAdder: FeatAdder, userDecoder: UserDecoder) {
+  constructor (adminValidator: AdminValidator, featAdder: FeatAdder) {
     this.adminValidator = adminValidator
     this.featAdder = featAdder
-    this.userDecoder = userDecoder
   }
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
