@@ -32,6 +32,6 @@ export interface AddFeatModel {
   prerequisites: string
 }
 
-export interface AddFeatSheet {
+export interface AddFeat {
   add (feat: AddFeatModel): Promise<FeatModel>
 }
