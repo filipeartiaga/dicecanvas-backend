@@ -18,6 +18,10 @@ MongoHelper.connect(env.mongoUrl)
         io.emit('new-dice', rollResult, checkType)
       })
 
+      socket.on('send-clear-log', () => {
+        socket.broadcast.emit('clear-log')
+      })
+
       socket.on('send-character-delete', ({ characterSheetId, emitter }) => {
         socket.broadcast.emit('character-delete', ({ characterSheetId, emitter }))
       })
