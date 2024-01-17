@@ -1,3 +1,5 @@
+import { FeatModel } from '../feat/feat'
+
 export interface CharacterSheetModel {
   _id: string
   creator: string
@@ -69,7 +71,10 @@ export interface CharacterSheetModel {
     type: string
   }>
   equipment: string[]
-  feats: string[]
+  feats: [{
+    feat: FeatModel
+    abilityScoreIncrease: string
+  }]
   featuresAndTraits: string[]
   otherProficiencies: string[]
   buffsAndNerfs: {
