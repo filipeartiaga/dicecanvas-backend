@@ -159,6 +159,12 @@ export class EditCharacterSheetController implements Controller {
         }
       })
 
+      characterSheet.feats.forEach((feat) => {
+        if (feat.feat._id === '' || feat.feat.name === '' || feat.feat.description === '') {
+          characterSheet.feats.splice(characterSheet.feats.indexOf(feat), 1)
+        }
+      })
+
       const updatedCharacterSheet = await this.characterSheetUpdater.update(characterSheet)
 
       return ok({
