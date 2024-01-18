@@ -90,13 +90,7 @@ export class EditCharacterSheetController implements Controller {
       } = httpRequest.body
 
       attacks.forEach((attack) => {
-        let willKeep = false
-        Object.keys(attack).forEach((key) => {
-          if (attack[key] !== '') {
-            willKeep = true
-          }
-        })
-        if (!willKeep) {
+        if (attacks.name === '') {
           attacks.splice(attacks.indexOf(attack), 1)
         }
       })
