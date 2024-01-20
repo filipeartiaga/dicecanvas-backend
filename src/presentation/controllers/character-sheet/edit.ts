@@ -86,7 +86,7 @@ export class EditCharacterSheetController implements Controller {
         customSlots,
         wealth,
         expertize,
-        aditionalConfigs,
+        additionalConfigs,
         notes
       } = httpRequest.body
 
@@ -128,7 +128,7 @@ export class EditCharacterSheetController implements Controller {
       characterSheet.customSlots = customSlots
       characterSheet.wealth = wealth
       characterSheet.expertize = expertize
-      characterSheet.aditionalConfigs = aditionalConfigs
+      characterSheet.additionalConfigs = additionalConfigs
       characterSheet.notes = notes
 
       characterSheet.equipment.forEach((equipment) => {

@@ -121,7 +121,7 @@ export interface CharacterSheetModel {
     stealth: boolean
     survival: boolean
   }
-  aditionalConfigs: {
+  additionalConfigs: {
     bonusProficiency: number
     bonusInitiative: number
     bonusSpeed: number
