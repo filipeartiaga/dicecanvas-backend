@@ -109,6 +109,7 @@ export class CreateCharacterSheetController implements Controller {
         additionalConfigs,
         notes: [{
           name: 'Bio',
+          rows: 5,
           text: ''
         }],
         createdAt
