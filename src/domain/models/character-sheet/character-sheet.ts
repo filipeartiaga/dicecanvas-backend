@@ -128,7 +128,6 @@ export interface CharacterSheetModel {
   }
   notes: [{
     name: string
-    rows: number
     text: string
   }]
   createdAt: Date

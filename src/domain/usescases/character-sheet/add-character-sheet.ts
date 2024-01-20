@@ -123,7 +123,6 @@ export interface AddCharacterSheetModel {
   }
   notes: [{
     name: string
-    rows: number
     text: string
   }]
   createdAt: Date
