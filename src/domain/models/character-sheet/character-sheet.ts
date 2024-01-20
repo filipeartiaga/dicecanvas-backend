@@ -126,5 +126,10 @@ export interface CharacterSheetModel {
     bonusInitiative: number
     bonusSpeed: number
   }
+  notes: [{
+    name: string
+    rows: number
+    text: string
+  }]
   createdAt: Date
 }

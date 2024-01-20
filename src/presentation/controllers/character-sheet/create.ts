@@ -107,6 +107,10 @@ export class CreateCharacterSheetController implements Controller {
         wealth,
         expertize,
         aditionalConfigs,
+        notes: [{
+          name: 'Bio',
+          text: ''
+        }],
         createdAt
       })
 

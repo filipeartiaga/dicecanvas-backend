@@ -40,7 +40,8 @@ export class UpdateCharacterSheetMongoRepository implements UpdateCharacterSheet
           customSlots: characterSheet.customSlots,
           wealth: characterSheet.wealth,
           expertize: characterSheet.expertize,
-          aditionalConfigs: characterSheet.aditionalConfigs
+          aditionalConfigs: characterSheet.aditionalConfigs,
+          notes: characterSheet.notes
         }
       },
       { returnDocument: 'after' }
