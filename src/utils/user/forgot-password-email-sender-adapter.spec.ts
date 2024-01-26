@@ -1,4 +1,4 @@
-import { FirstAccessEmailSenderAdapter } from './first-access-email-sender-adapter'
+import { ForgotPasswordEmailSenderAdapter } from './forgot-password-email-sender-adapter'
 
 jest.mock('nodemailer', () => ({
   createTransport: jest.fn().mockReturnValue({
@@ -14,7 +14,7 @@ describe('Forgot Password Email Sender Adapter', () => {
       text: 'My Message!'
     }
 
-    const sut = new FirstAccessEmailSenderAdapter()
+    const sut = new ForgotPasswordEmailSenderAdapter()
     const response = await sut.sendMail(options.to, options.text)
     expect(response).toBeTruthy()
   })
