@@ -75,7 +75,7 @@ describe('DbAddUser Usecase', () => {
     })
   })
 
-  test('Should throw if AddUserRepitory throws ', async () => {
+  test('Should throw if AddUserRepository throws ', async () => {
     const { sut, AddUserRepositoryStub } = makeSut()
     jest.spyOn(AddUserRepositoryStub, 'add').mockReturnValueOnce(
       new Promise((resolve, reject) => {
