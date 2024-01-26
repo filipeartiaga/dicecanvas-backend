@@ -9,6 +9,7 @@
     "dev": "nodemon --exec sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
+    "test:ci": "npm test -- --coverage",
     "lint": "eslint --fix --ext .js,.jsx,.ts ."
   },
   "keywords": [],
