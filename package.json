@@ -8,6 +8,7 @@
     "websocket": "nodemon --exec sucrase-node src/main/socket.ts",
     "dev": "nodemon --exec sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "lint": "eslint --fix --ext .js,.jsx,.ts ."
   },
   "keywords": [],
