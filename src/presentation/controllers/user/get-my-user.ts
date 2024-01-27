@@ -16,6 +16,9 @@ export class GetMyUserController implements Controller {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
+      if (!httpRequest.headers) {
+        return badRequest(new MissingParamError('access-token'))
+      }
       const accessToken = httpRequest.headers['access-token']
       if (!accessToken) {
         return badRequest(new MissingParamError('access-token'))
