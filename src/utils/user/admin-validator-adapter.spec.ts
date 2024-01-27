@@ -1,5 +1,5 @@
-import { UserModel } from 'src/domain/models/user/user'
-import { UserDecoder, UserGetter } from 'src/presentation/protocols/user'
+import { UserModel } from '../../domain/models/user/user'
+import { UserDecoder, UserGetter } from '../../presentation/protocols/user'
 import { AdminValidatorAdapter } from './admin-validator-adapter'
 
 const makeFakeUser = (): UserModel => ({

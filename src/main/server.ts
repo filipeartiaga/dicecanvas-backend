@@ -1,6 +1,6 @@
 import { MongoHelper } from '../infra/db/mongodb/helpers/mongo-helper'
 import env from './config/env'
-import { CharacterSheetModel } from 'src/domain/models/character-sheet/character-sheet'
+import { CharacterSheetModel } from '../domain/models/character-sheet/character-sheet'
 import { LogModel } from '../domain/models/log/log'
 
 MongoHelper.connect(env.mongoUrl)
