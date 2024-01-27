@@ -1,4 +1,4 @@
-import { InvalidParamError, MissingParamError, UnauthorizedError } from '../../errors'
+import { InvalidParamError, MissingParamError, UnauthorizedError, UserNotFoundError } from '../../errors'
 import { badRequest, ok, serverError, unauthorized, userNotFound, userNotVerified } from '../../helpers/http-helpers'
 import { Controller } from '../../protocols/controller'
 import { HttpRequest, HttpResponse } from '../../protocols/http'
@@ -36,7 +36,7 @@ export class LoginController implements Controller {
 
       const user = await this.userGetter.getByEmail(email)
       if (!user) {
-        return userNotFound(new InvalidParamError('email'))
+        return userNotFound(new UserNotFoundError())
       }
 
       if (!user.isVerified) {
