@@ -7,6 +7,6 @@ export class AddUserMongoRepository implements AddUserRepository {
   async add (userData: AddUserModel): Promise<UserModel> {
     const userCollection = await MongoHelper.getCollection('users')
     const result = await userCollection.insertOne(userData)
-    return result
+    return result.ops[0]
   }
 }
