@@ -1,5 +1,5 @@
-import { MissingParamError, UnauthorizedError } from '../../errors'
-import { badRequest, ok, serverError, unauthorized } from '../../helpers/http-helpers'
+import { MissingParamError, UserNotFoundError } from '../../errors'
+import { badRequest, ok, serverError, userNotFound } from '../../helpers/http-helpers'
 import { Controller } from '../../protocols/controller'
 import { HttpRequest, HttpResponse } from '../../protocols/http'
 import { UserGetter } from '../../protocols/user'
@@ -19,6 +19,7 @@ export class GetMyUserController implements Controller {
       if (!httpRequest.headers) {
         return badRequest(new MissingParamError('access-token'))
       }
+
       const accessToken = httpRequest.headers['access-token']
       if (!accessToken) {
         return badRequest(new MissingParamError('access-token'))
@@ -26,7 +27,7 @@ export class GetMyUserController implements Controller {
 
       const user = await this.userGetter.getById(this.userDecoder.decode(accessToken))
       if (!user) {
-        return unauthorized(new UnauthorizedError())
+        return userNotFound(new UserNotFoundError())
       }
 
       return ok({
