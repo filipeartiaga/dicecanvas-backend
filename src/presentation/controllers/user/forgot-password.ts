@@ -1,4 +1,4 @@
-import { InvalidParamError, MissingParamError } from '../../errors'
+import { InvalidParamError, MissingParamError, UserNotFoundError } from '../../errors'
 import { badRequest, ok, serverError, userNotFound } from '../../helpers/http-helpers'
 import { Controller } from '../../protocols/controller'
 import { HttpRequest, HttpResponse } from '../../protocols/http'
@@ -39,11 +39,12 @@ export class ForgotPasswordController implements Controller {
 
       const user = await this.userGetter.getByEmail(email)
       if (!user) {
-        return userNotFound(new InvalidParamError('email'))
+        return userNotFound(new UserNotFoundError())
       }
 
       const passwordResetToken = this.forgotPasswordTokenGenerator.generate(4)
-      const passwordResetTokenExpires = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000)
+      const passwordResetTokenExpires = new Date()
+      passwordResetTokenExpires.setHours(passwordResetTokenExpires.getHours() + 48)
 
       user.passwordResetToken = passwordResetToken
       user.passwordResetExpires = passwordResetTokenExpires
