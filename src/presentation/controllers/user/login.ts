@@ -1,4 +1,4 @@
-import { InvalidParamError, MissingParamError } from '../../errors'
+import { InvalidParamError, MissingParamError, UnauthorizedError } from '../../errors'
 import { badRequest, ok, serverError, unauthorized, userNotFound, userNotVerified } from '../../helpers/http-helpers'
 import { Controller } from '../../protocols/controller'
 import { HttpRequest, HttpResponse } from '../../protocols/http'
@@ -45,7 +45,7 @@ export class LoginController implements Controller {
 
       const isValidPassword = await this.encrypter.compare(password, user.password)
       if (!isValidPassword) {
-        return unauthorized(new InvalidParamError('password'))
+        return unauthorized(new UnauthorizedError())
       }
 
       const accessToken = this.userSigner.sign(user)
