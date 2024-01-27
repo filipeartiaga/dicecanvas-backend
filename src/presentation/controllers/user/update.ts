@@ -1,7 +1,7 @@
 import { Controller } from '../../protocols/controller'
 import { HttpRequest, HttpResponse } from '../../protocols/http'
 import { badRequest, ok, serverError } from '../../helpers/http-helpers'
-import { InvalidParamError } from '../../errors'
+import { InvalidParamError, MissingParamError } from '../../errors'
 import { UserDecoder, UserGetter, UserUpdater } from '../../protocols/user'
 
 export class UpdateUserController implements Controller {
@@ -17,7 +17,14 @@ export class UpdateUserController implements Controller {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
+      if (!httpRequest.headers) {
+        return badRequest(new MissingParamError('access-token'))
+      }
       const accessToken = httpRequest.headers['access-token']
+
+      if (!accessToken) {
+        return badRequest(new MissingParamError('access-token'))
+      }
 
       const {
         userSettings
@@ -34,7 +41,13 @@ export class UpdateUserController implements Controller {
       const updatedUser = await this.userUpdater.update(user)
 
       return ok({
-        updatedUser
+        _id: updatedUser._id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        role: updatedUser.role,
+        isVerified: updatedUser.isVerified,
+        userSettings: updatedUser.userSettings,
+        createdAt: updatedUser.createdAt
       })
     } catch (error) {
       console.log(error)
