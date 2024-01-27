@@ -12,6 +12,7 @@ export class UpdateUserMongoRepository implements UpdateUserRepository {
           password: user.password,
           name: user.name,
           isVerified: user.isVerified,
+          role: user.role,
           passwordResetToken: user.passwordResetToken,
           passwordResetExpires: user.passwordResetExpires,
           userSettings: user.userSettings
