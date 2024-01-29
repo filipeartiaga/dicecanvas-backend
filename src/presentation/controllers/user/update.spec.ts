@@ -81,9 +81,25 @@ const makeSut = (): ISutTypes => {
 }
 
 describe('Edit User', () => {
+  test('Should return 400 if headers are not provided', async () => {
+    const { sut } = makeSut()
+    const httpRequest = {
+      body: {
+        userSettings: {
+          autoScroll: true
+        }
+      }
+    }
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(400)
+    expect(httpResponse.body).toEqual(new MissingParamError('access-token'))
+  })
+
   test('Should return 400 if accessToken is not provided', async () => {
     const { sut } = makeSut()
     const httpRequest = {
+      headers: {
+      },
       body: {
         userSettings: {
           autoScroll: true
@@ -110,6 +126,23 @@ describe('Edit User', () => {
     }
     await sut.handle(httpRequest)
     expect(getByIdSpy).toHaveBeenCalledWith('valid_id')
+  })
+
+  test('Should return 401 if user is not found', async () => {
+    const { sut, userGetterStub } = makeSut()
+    jest.spyOn(userGetterStub, 'getById').mockReturnValueOnce(null)
+    const httpRequest = {
+      headers: {
+        'access-token': 'valid_token'
+      },
+      body: {
+        userSettings: {
+          autoScroll: true
+        }
+      }
+    }
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(401)
   })
 
   test('Should call user updater with correct user', async () => {
