@@ -1,7 +1,7 @@
 import { Controller } from '../../protocols/controller'
 import { HttpRequest, HttpResponse } from '../../protocols/http'
-import { badRequest, ok, serverError } from '../../helpers/http-helpers'
-import { InvalidParamError, MissingParamError } from '../../errors'
+import { badRequest, ok, serverError, userNotFound } from '../../helpers/http-helpers'
+import { MissingParamError, UserNotFoundError } from '../../errors'
 import { UserDecoder, UserGetter, UserUpdater } from '../../protocols/user'
 
 export class UpdateUserController implements Controller {
@@ -26,15 +26,15 @@ export class UpdateUserController implements Controller {
         return badRequest(new MissingParamError('access-token'))
       }
 
-      const {
-        userSettings
-      } = httpRequest.body
-
       const user = await this.userGetter.getById(this.userDecoder.decode(accessToken))
 
       if (!user) {
-        return badRequest(new InvalidParamError('access-token'))
+        return userNotFound(new UserNotFoundError())
       }
+
+      const {
+        userSettings
+      } = httpRequest.body
 
       if (userSettings) user.userSettings = userSettings
 
