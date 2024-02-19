@@ -41,6 +41,10 @@ MongoHelper.connect(env.mongoUrl)
       socket.on('send-delete-initiative', () => {
         io.emit('delete-initiative')
       })
+
+      socket.on('send-start-initiative', () => {
+        io.emit('new-initiative')
+      })
     })
 
     server.listen(env.port, () => { console.log(`Server is running at http://localhost:${env.port}`) })
