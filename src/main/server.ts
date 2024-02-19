@@ -43,7 +43,7 @@ MongoHelper.connect(env.mongoUrl)
       })
 
       socket.on('send-start-initiative', () => {
-        io.emit('new-initiative')
+        io.emit('start-initiative')
       })
     })
 
