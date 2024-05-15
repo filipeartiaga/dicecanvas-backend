@@ -23,7 +23,7 @@ export class ForgotPasswordEmailSenderAdapter implements ForgotPasswordEmailSend
           <p style="font-size: 18px; color: #333;">Hello,</p>
           <p style="font-size: 16px; color: #333;">Use the following link to reset your password. The link is valid for 48 hours.</p>
           <p style="font-size: 16px;">
-              <a href="https://routesviewer.com/auth/change-password?password-reset-token=${forgotPasswordToken}&email=${email}" style="text-decoration: none; background-color: #007bff; color: #fff; padding: 10px 20px; border-radius: 5px; display: inline-block;">Verify Your Account</a>
+              <a href="https://dicecanvas.com/auth/change-password?password-reset-token=${forgotPasswordToken}&email=${email}" style="text-decoration: none; background-color: #007bff; color: #fff; padding: 10px 20px; border-radius: 5px; display: inline-block;">Verify Your Account</a>
           </p>
           <p style="font-size: 16px; color: #333;">Thank you for using for DiceCanvas!</p>
       </div>
